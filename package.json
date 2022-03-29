@@ -1,0 +1,16 @@
+{
+  "name": "interaktionsdesign",
+  "version": "1.0.0",
+  "repository": "git@github.com:olvrb/interaktionsdesign",
+  "author": "Oliver Boudet <oboudet1@me.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "frontend": "yarn workspace @interaktionsdesign/frontend",
+    "backend": "yarn workspace @interaktionsdesign/backend",
+    "dev": "yarn frontend dev & yarn backend dev"
+  }
+}
