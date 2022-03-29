@@ -11,6 +11,6 @@
   "scripts": {
     "frontend": "yarn workspace @interaktionsdesign/frontend",
     "backend": "yarn workspace @interaktionsdesign/backend",
-    "dev": "yarn backend dev & yarn frontend dev"
+    "dev": "yarn frontend dev & yarn backend dev"
   }
 }
