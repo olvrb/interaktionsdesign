@@ -4,6 +4,7 @@ import { join } from "path";
 import { Configuration } from "./Config";
 import { connect } from "./Database/Index";
 import { BindControllers } from "./Controllers/Index";
+import { Image } from "./Database/Entities/Image";
 const app = express();
 
 app.set("view engine", "ejs");
@@ -18,6 +19,8 @@ BindControllers();
 const port = Configuration.Web.Port;
 connect()
     .then(() => {
+        const newImage = new Image();
+        newImage.save();
         app.listen(port, () => {
             console.log(`Listening on port ${port}: http://localhost:${port}`);
         });
