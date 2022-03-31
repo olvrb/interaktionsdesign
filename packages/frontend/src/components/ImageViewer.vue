@@ -1,42 +1,41 @@
 <script setup lang="ts">
-import { NGrid, NGridItem } from "naive-ui";
+import { NGrid, NGridItem, NSpace, NImageGroup, NImage } from "naive-ui";
+import { onBeforeMount, ref } from "vue";
+import ImageBox from "./ImageBox.vue";
+
+const filesystem = ref<any>();
+
+onBeforeMount(async () => {
+  filesystem.value = await (
+    await fetch("http://localhost:3224/api/images", { mode: "cors" })
+  ).json();
+});
 </script>
 <template>
-  <n-grid :x-gap="12" :y-gap="8" :cols="4">
-    <n-grid-item>
-      <div class="light-green" />
-    </n-grid-item>
-    <n-grid-item>
-      <div class="green" />
-    </n-grid-item>
-    <n-grid-item>
-      <div class="light-green" />
-    </n-grid-item>
-    <n-grid-item>
-      <div class="green" />
-    </n-grid-item>
-    <n-grid-item>
-      <div class="light-green" />
-    </n-grid-item>
-    <n-grid-item>
-      <div class="green" />
-    </n-grid-item>
-    <n-grid-item>
-      <div class="light-green" />
-    </n-grid-item>
-    <n-grid-item>
-      <div class="green" />
+  <!-- <a>{{ filesystem }}</a> -->
+
+  <n-grid
+    :x-gap="12"
+    y-gap="8"
+    cols="2 s:3 m:4 l:5 xl:6 2xl:7"
+    responsive="screen"
+  >
+    <n-grid-item v-for="file in filesystem" :key="file">
+      <div class="special">
+        <ImageBox
+          v-if="!file.isDirectory"
+          :title="file.name"
+          description="{{ file.name }}"
+          :imageSrc="`http://localhost:3224/api/image/${file.name}`"
+        />
+      </div>
     </n-grid-item>
   </n-grid>
 </template>
 
 <style>
-.light-green {
-  height: 108px;
-  background-color: rgba(0, 128, 0, 0.12);
-}
-.green {
-  height: 108px;
-  background-color: rgba(0, 128, 0, 0.24);
+.special {
+  max-width: 100%;
+  height: auto;
 }
 </style>

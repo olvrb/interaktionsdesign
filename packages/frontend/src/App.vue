@@ -12,7 +12,7 @@ import ImageViewer from "./components/ImageViewer.vue";
   <ImageBox
     title="Vue logo"
     description="Vue logo"
-    image="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+    image-src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
   ></ImageBox>
   <ImageViewer />
 </template>
