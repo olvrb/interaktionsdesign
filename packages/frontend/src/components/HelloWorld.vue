@@ -32,8 +32,6 @@ const count2 = ref(2);
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
-
-  <button @click="count2 = count2 * count2">count2: {{ count2 }}</button>
 </template>
 
 <style scoped>

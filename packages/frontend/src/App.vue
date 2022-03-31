@@ -7,13 +7,7 @@ import ImageViewer from "./components/ImageViewer.vue";
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Nyhetssida" />
-  <ImageBox
-    title="Vue logo"
-    description="Vue logo"
-    image-src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
-  ></ImageBox>
   <ImageViewer />
 </template>
 

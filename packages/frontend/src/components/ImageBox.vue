@@ -5,7 +5,7 @@ defineProps<{ title: string; description: string; imageSrc: string }>();
 
 <template>
   <div class="container">
-    <NImage class="image" width="200" v-bind:src="imageSrc" />
+    <NImage class="image" width="200" v-bind:src="imageSrc" loading="lazy" />
     <div class="middle">
       <div class="text">{{ title }}</div>
     </div>
