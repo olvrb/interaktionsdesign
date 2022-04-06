@@ -1,4 +1,4 @@
-import { createConnection } from "typeorm";
+import { createConnection, getConnection } from "typeorm";
 
 import { Configuration } from "../Config";
 import { join } from "path";

@@ -6,6 +6,7 @@ import { connect } from "./Database/Index";
 import { BindControllers } from "./Controllers/Index";
 import { Image } from "./Database/Entities/Image";
 import cors from "cors";
+import { ImageService } from "./Services/ImageService";
 const app = express();
 
 app.set("view engine", "ejs");
@@ -19,10 +20,10 @@ app.use(cors());
 BindControllers();
 
 const port = Configuration.Web.Port;
+const imageService = new ImageService(Configuration.Web.ImageDirectory);
 connect()
-    .then(() => {
-        const newImage = new Image();
-        newImage.save();
+    .then(async () => {
+        await imageService.init();
         app.listen(port, () => {
             console.log(`Listening on port ${port}: http://localhost:${port}`);
         });

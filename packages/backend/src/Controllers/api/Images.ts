@@ -6,6 +6,6 @@ export async function CreateImagesHandler(
     res: Response,
     next: NextFunction
 ) {
-    res.json(ImageService.GetImages());
+    res.json(await ImageService.GetImages());
     // res.json(await Item.find());
 }

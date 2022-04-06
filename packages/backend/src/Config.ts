@@ -3,7 +3,7 @@ import { join } from "path";
 export class Configuration {
     public static Web = {
         Port: 3224 || process.env.PORT,
-        ImageDirectory: join(__dirname, "../images")
+        ImageDirectory: join(__dirname, "../images/")
     };
     public static Database: ConnectionOptions = {
         type: "mysql",
@@ -12,6 +12,7 @@ export class Configuration {
         database: "nyhet",
         synchronize: true,
         username: "oliver",
-        password: "123456789"
+        password: "123456789",
+        logging: false
     };
 }

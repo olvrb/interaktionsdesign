@@ -24,9 +24,9 @@ onBeforeMount(async () => {
       <div class="special">
         <ImageBox
           v-if="!file.isDirectory"
-          :title="file.name"
-          description="{{ file.name }}"
-          :imageSrc="`http://localhost:3224/api/image/${file.name}`"
+          :title="file.fileName"
+          description="{{ file.fileName }}"
+          :imageSrc="`http://localhost:3224/api/image/${file.fileName}`"
         />
       </div>
     </n-grid-item>
