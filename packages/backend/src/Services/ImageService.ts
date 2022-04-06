@@ -22,10 +22,6 @@ export class ImageService {
     }
 
     public static async GetImages(): Promise<File[]> {
-        const im = await Directory.find();
-        for (const i of im) {
-            console.log(i.isDirectory());
-        }
         return [
             ...(await (await Image.find()).map((x) => x.toJSON())),
             ...(await (await Directory.find()).map((x) => x.toJSON()))
