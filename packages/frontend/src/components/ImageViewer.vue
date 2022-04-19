@@ -21,6 +21,7 @@ onBeforeMount(async () => {
     responsive="screen"
   >
     <n-grid-item v-for="file in filesystem" :key="file">
+      <a href="test"></a>
       <div class="special">
         <ImageBox
           v-if="!file.isDirectory"
