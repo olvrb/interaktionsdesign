@@ -7,6 +7,7 @@ import { BindControllers } from "./Controllers/Index";
 import { Image } from "./Database/Entities/Image";
 import cors from "cors";
 import { ImageService } from "./Services/ImageService";
+import fileUpload from "express-fileupload";
 const app = express();
 
 app.set("view engine", "ejs");
@@ -15,15 +16,16 @@ app.use(json()); // for parsing application/json
 app.use(urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static(join(__dirname, "../public")));
 app.use(cors());
+app.use(fileUpload());
 
 // Routes
 BindControllers();
 
 const port = Configuration.Web.Port;
-const imageService = new ImageService(Configuration.Web.ImageDirectory);
+// const imageService = new ImageService(Configuration.Web.ImageDirectory);
 connect()
     .then(async () => {
-        await imageService.init();
+        // await imageService.init();
         app.listen(port, () => {
             console.log(`Listening on port ${port}: http://localhost:${port}`);
         });
