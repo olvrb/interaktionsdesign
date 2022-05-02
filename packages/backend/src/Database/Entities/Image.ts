@@ -1,5 +1,4 @@
 import {
-    BaseEntity,
     Column,
     Entity,
     Generated,
@@ -9,31 +8,26 @@ import {
     PrimaryGeneratedColumn,
     TableInheritance
 } from "typeorm";
-import { Directory } from "./Directory";
-import { File } from "./File";
-import { Keyword } from "./Keyword";
+import { BaseEntity } from "./BaseEntity";
+import { Category } from "./Category";
 
 @Entity()
-export class Image extends File {
-    public isDirectory(): boolean {
-        return false;
-    }
-    /**
-     *
-     */
-    constructor(path: string, fileName: string) {
-        super(path, fileName);
-    }
+export class Image extends BaseEntity {
+    @Column()
+    public name: string;
+
+    @Column()
+    public fileName: string;
+
+    @Column()
+    public description: string;
+
+    @Column()
+    public usesLeft: number;
 
     @ManyToOne(
-        (type) => Directory,
-        (dir) => dir.images
+        (type) => Category,
+        (category) => category.images
     )
-    public directory: Directory;
-
-    @OneToMany(
-        (type) => Keyword,
-        (item) => item.image
-    )
-    public keywords: Keyword[];
+    public category: Category;
 }
