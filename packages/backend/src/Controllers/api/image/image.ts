@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import fs from "fs";
 import stream from "stream";
 import { ImageService } from "../../../Services/ImageService";
-export async function ImageHandler(
+export async function ReadImageHandler(
     req: Request,
     res: Response,
     next: NextFunction

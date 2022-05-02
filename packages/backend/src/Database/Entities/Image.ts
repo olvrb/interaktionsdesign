@@ -1,13 +1,20 @@
 import {
+    BeforeRemove,
     Column,
+    DeleteResult,
     Entity,
+    FindConditions,
     Generated,
     ManyToOne,
+    ObjectID,
+    ObjectType,
     OneToMany,
     PrimaryColumn,
     PrimaryGeneratedColumn,
+    RemoveOptions,
     TableInheritance
 } from "typeorm";
+import { ImageService } from "../../Services/ImageService";
 import { BaseEntity } from "./BaseEntity";
 import { Category } from "./Category";
 
@@ -19,6 +26,12 @@ export class Image extends BaseEntity {
         this.description = description;
         this.usesLeft = uses;
     }
+
+    @BeforeRemove()
+    public async beforeRemove() {
+        ImageService.DeleteImageFile(this.getFileName());
+    }
+
     public async setCategory(categoryId) {
         this.category = await Category.findOne(categoryId);
     }
