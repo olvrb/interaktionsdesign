@@ -10,6 +10,10 @@ export async function DeleteImageHandler(
     next: NextFunction
 ) {
     const imageId = req.params.id;
-    await ImageService.DeleteImage(imageId);
-    res.json({ id: imageId });
+    try {
+        await ImageService.DeleteImage(imageId);
+        res.json({ id: imageId });
+    } catch (error) {
+        next(error);
+    }
 }

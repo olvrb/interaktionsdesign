@@ -8,6 +8,7 @@ import { Image } from "./Database/Entities/Image";
 import cors from "cors";
 import { ImageService } from "./Services/ImageService";
 import fileUpload from "express-fileupload";
+import { CategoryService } from "./Services/CategoryService";
 const app = express();
 
 app.set("view engine", "ejs");
@@ -26,6 +27,7 @@ const port = Configuration.Web.Port;
 connect()
     .then(async () => {
         // await imageService.init();
+        await CategoryService.init();
         app.listen(port, () => {
             console.log(`Listening on port ${port}: http://localhost:${port}`);
         });
