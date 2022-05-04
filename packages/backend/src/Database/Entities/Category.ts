@@ -1,23 +1,44 @@
-import { Column, Entity, ManyToMany, ManyToOne, OneToMany } from "typeorm";
+import {
+    Column,
+    Entity,
+    JoinColumn,
+    ManyToMany,
+    ManyToOne,
+    OneToMany,
+    Tree,
+    TreeChildren,
+    TreeParent
+} from "typeorm";
 import { BaseEntity } from "./BaseEntity";
 import { Image } from "./Image";
 
 @Entity()
+@Tree("closure-table")
 export class Category extends BaseEntity {
+    constructor(name: string, parent?: Category, children?: Category[]) {
+        super();
+        this.name = name;
+        // if (children) this.children = children;
+        if (parent) this.parent = parent;
+    }
+
+    public async addChildren(children: Category[]) {
+        for (const child of children) {
+            child.setParent(this);
+        }
+    }
+
+    public setParent(parent: Category) {
+        this.parent = parent;
+    }
+
     @Column()
     public name: string;
 
-    @OneToMany(
-        (type) => Category,
-        (dir) => dir.parent,
-        { cascade: true }
-    )
-    public children: Category[];
+    @TreeChildren({ cascade: true })
+    public children: Category[] | null;
 
-    @ManyToOne(
-        (type) => Category,
-        (dir) => dir.children
-    )
+    @TreeParent({ onDelete: "CASCADE" })
     public parent: Category | null;
 
     @OneToMany(
