@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { getTreeRepository } from "typeorm";
 import { Category } from "../../../Database/Entities/Category";
 
-export async function ReadCategoryHandler(
+export async function ReadCategoriesHandler(
     req: Request,
     res: Response,
     next: NextFunction

@@ -3,8 +3,9 @@ import { CreateImageHandler } from "./api/image/create";
 import { DeleteImageHandler } from "./api/image/delete";
 import { ReadImageHandler } from "./api/image/read";
 import { ReadImagesHandler } from "./api/image/images";
-import { ReadImageHandler as ReadImageInfoHandler } from "./api/image/info";
-import { ReadCategoryHandler as ReadCategoriesHandler } from "./api/category/read";
+import { ReadImageInfoHandler } from "./api/image/info";
+import { ReadCategoriesHandler } from "./api/category/read";
+import { ErrorHandler } from "./middleware/error";
 
 export function BindControllers() {
     /*  Images  */
@@ -16,4 +17,6 @@ export function BindControllers() {
 
     /*  Categories  */
     app.get("/api/categories", ReadCategoriesHandler);
+
+    app.use(ErrorHandler);
 }

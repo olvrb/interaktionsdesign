@@ -4,12 +4,15 @@ import { join } from "path";
 import { Configuration } from "../../../Config";
 import { Image } from "../../../Database/Entities/Image";
 import { ImageService } from "../../../Services/ImageService";
+import createHttpError, { HttpError } from "http-errors";
 export async function CreateImageHandler(
     req: Request,
     res: Response,
     next: NextFunction
 ) {
-    if (!req.files) return res.status(400).send("No files were uploaded.");
+    if (!req.files) {
+        return next(createHttpError(404));
+    }
     // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
     const { imageName, description, categoryId, uses } = req.body;
     const file = req.files.file as UploadedFile;

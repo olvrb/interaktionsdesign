@@ -27,7 +27,11 @@ export class ImageService {
         return await Image.save(image);
     }
     public static async DeleteImage(id: string): Promise<void> {
-        await Image.remove(await Image.findOneOrFail(id));
+        try {
+            await Image.remove(await Image.findOneOrFail(id));
+        } catch (error) {
+            throw error;
+        }
     }
 
     public static async DeleteImageFile(fileName: string): Promise<void> {
