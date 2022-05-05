@@ -1,14 +1,13 @@
 import { Request, Response, NextFunction } from "express";
-import { Image } from "../../Database/Entities/Image";
-import { ImageService } from "../../Services/ImageService";
 import fs from "fs";
 import stream from "stream";
-export async function CreateImageHandler(
+import { ImageService } from "../../../Services/ImageService";
+export async function ReadImageHandler(
     req: Request,
     res: Response,
     next: NextFunction
 ) {
-    const r = ImageService.GetImage(req.params.id); // or any other way to get a readable stream
+    const r = await ImageService.GetImageFile(req.params.id); // or any other way to get a readable stream
     const ps = new stream.PassThrough(); // <---- this makes a trick with stream error handling
     stream.pipeline(
         r,
