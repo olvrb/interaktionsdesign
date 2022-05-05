@@ -5,6 +5,7 @@ import {
     Entity,
     FindConditions,
     Generated,
+    ManyToMany,
     ManyToOne,
     ObjectID,
     ObjectType,
@@ -17,6 +18,8 @@ import {
 import { ImageService } from "../../Services/ImageService";
 import { BaseEntity } from "./BaseEntity";
 import { Category } from "./Category";
+import { Keyword } from "./Keyword";
+import { JoinTable } from "typeorm";
 
 @Entity()
 export class Image extends BaseEntity {
@@ -64,5 +67,9 @@ export class Image extends BaseEntity {
         (type) => Category,
         (category) => category.images
     )
-    public category: Category | null;
+    public category: Category | null
+
+    @ManyToMany(() => Keyword , (keyword) => keyword.images)
+    @JoinTable()
+    public keywords: Keyword[];
 }
