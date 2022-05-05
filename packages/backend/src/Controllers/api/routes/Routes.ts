@@ -17,7 +17,7 @@ router.post('/register', [
     body('password',"The Password must be of minimum 4 characters length").notEmpty().trim().isLength({ min: 4 }),
 ], register);
 
-
+// Login
 router.post('/login',[
     body('email',"Invalid email address")
     .notEmpty()
@@ -29,3 +29,15 @@ router.post('/login',[
 router.get('/getuser',getUser);
 
 module.exports = router;
+
+// Logout
+router.get('/logout', function(req, res, next) {
+    // remove the req.user property and clear the login session
+    req.logout();
+  
+    // destroy session data
+    req.session = null;
+  
+    // redirect to homepage
+    res.redirect('/');
+  });
