@@ -120,3 +120,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+/packages/backend/src/Config.ts

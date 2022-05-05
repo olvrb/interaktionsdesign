@@ -1,39 +1,68 @@
 import {
-    BaseEntity,
+    BeforeRemove,
     Column,
+    DeleteResult,
     Entity,
+    FindConditions,
     Generated,
     ManyToOne,
+    ObjectID,
+    ObjectType,
     OneToMany,
     PrimaryColumn,
     PrimaryGeneratedColumn,
+    RemoveOptions,
     TableInheritance
 } from "typeorm";
-import { Directory } from "./Directory";
-import { File } from "./File";
-import { Keyword } from "./Keyword";
+import { ImageService } from "../../Services/ImageService";
+import { BaseEntity } from "./BaseEntity";
+import { Category } from "./Category";
 
 @Entity()
-export class Image extends File {
-    public isDirectory(): boolean {
-        return false;
+export class Image extends BaseEntity {
+    constructor(name: string, description: string, uses: number) {
+        super();
+        this.name = name;
+        this.description = description;
+        this.usesLeft = uses;
     }
-    /**
-     *
-     */
-    constructor(path: string, fileName: string) {
-        super(path, fileName);
+
+    @BeforeRemove()
+    public async beforeRemove() {
+        ImageService.DeleteImageFile(this.getFileName());
     }
+
+    public async setCategory(categoryId) {
+        this.category = await Category.findOne(categoryId);
+    }
+
+    public static createImage(
+        name: string,
+        description: string,
+        categoryId: string,
+        uses: number
+    ) {
+        const image = new Image(name, description, uses);
+        image.setCategory(categoryId);
+        return image;
+    }
+
+    @Column()
+    public name: string;
+
+    public getFileName() {
+        return this.id;
+    }
+
+    @Column()
+    public description: string;
+
+    @Column()
+    public usesLeft: number;
 
     @ManyToOne(
-        (type) => Directory,
-        (dir) => dir.images
+        (type) => Category,
+        (category) => category.images
     )
-    public directory: Directory;
-
-    @OneToMany(
-        (type) => Keyword,
-        (item) => item.image
-    )
-    public keywords: Keyword[];
+    public category: Category | null;
 }
