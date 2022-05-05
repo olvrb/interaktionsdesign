@@ -14,7 +14,7 @@ export class Keyword extends BaseEntity {
     @Column()
     public name: string;
 
-    @ManyToMany(() => Image)
+    @ManyToMany(() => Image , (image) => image.keywords)
     @JoinTable()
-    public imageId: Image[];
+    public images: Image[];
 }

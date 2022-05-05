@@ -2,6 +2,7 @@ import {
     Column,
     Entity,
     Generated,
+    ManyToMany,
     ManyToOne,
     OneToMany,
     PrimaryColumn,
@@ -10,6 +11,8 @@ import {
 } from "typeorm";
 import { BaseEntity } from "./BaseEntity";
 import { Category } from "./Category";
+import { Keyword } from "./Keyword";
+import { JoinTable } from "typeorm";
 
 @Entity()
 export class Image extends BaseEntity {
@@ -30,4 +33,8 @@ export class Image extends BaseEntity {
         (category) => category.images
     )
     public category: Category;
+
+    @ManyToMany(() => Keyword , (keyword) => keyword.images)
+    @JoinTable()
+    public keywords: Keyword[];
 }
