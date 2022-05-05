@@ -8,5 +8,6 @@ export async function ReadImageInfoHandler(
 ) {
     const id = req.params.id;
 
-    res.json(await ImageService.GetImage(id));
+    const image = await ImageService.GetImage(id);
+    res.json(image);
 }
