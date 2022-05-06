@@ -11,6 +11,7 @@ export async function SearchKeywordsHandler(
     const { query } = req.params;
 
     const keywords = await Keyword.find({ name: Like(`%${query}%`) });
+    console.log(keywords);
 
     res.json(keywords);
 }

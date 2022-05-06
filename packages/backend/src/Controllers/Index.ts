@@ -20,7 +20,7 @@ export function BindControllers() {
 
     /*  Categories  */
     app.get("/api/categories", ReadCategoriesHandler);
-    app.get("/api/categories/search/:query", SearchCategoriesHandler);
+    app.get("/api/categories/search/:query?", SearchCategoriesHandler);
 
     /* Keywords */
     app.post("/api/keyword/create", CreateKeywordHandler);
