@@ -13,16 +13,17 @@ export async function CreateImageHandler(
     if (!req.files) {
         return next(createHttpError(404));
     }
-    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-    const { imageName, description, categoryId, uses, keywords } = req.body;
+    let { imageName, description, categoryId, uses, keywords } = req.body;
+    if (!uses) uses = -1;
 
+    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
     const file = req.files.file as UploadedFile;
     const dbImage = await Image.createImage(
         imageName,
         description,
         categoryId,
         +uses,
-        keywords
+        keywords.split(" ")
     );
 
     const savedDbImage = await dbImage.save();

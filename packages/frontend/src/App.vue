@@ -4,11 +4,11 @@
 import HelloWorld from "./components/HelloWorld.vue";
 import ImageBox from "./components/ImageBox.vue";
 import ImageViewer from "./components/ImageViewer.vue";
+import UploadImageView from "./components/UploadImage/UploadImageView.vue";
 </script>
 
 <template>
-  <HelloWorld msg="Nyhetssida" />
-  <ImageViewer />
+  <UploadImageView />
 </template>
 
 <style>
