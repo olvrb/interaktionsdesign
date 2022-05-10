@@ -1,14 +1,26 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from "./components/HelloWorld.vue";
-import ImageBox from "./components/ImageBox.vue";
-import ImageViewer from "./components/ImageViewer.vue";
+
+import { ref } from "@vue/reactivity";
 import UploadImageView from "./components/UploadImage/UploadImageView.vue";
+import { CategoryApiClient } from "./api/clients/category.api";
+</script>
+<script lang="ts">
+let categoryApiClient: CategoryApiClient;
+export default {
+    props: {
+        baseUrl: String
+    }
+};
 </script>
 
 <template>
-  <UploadImageView />
+    <UploadImageView
+        :category-api-client="
+            baseUrl ? new CategoryApiClient(baseUrl) : undefined
+        "
+    />
 </template>
 
 <style>

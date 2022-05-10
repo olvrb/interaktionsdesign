@@ -1,17 +1,17 @@
-import { ApiClient } from "./ApiClient";
-import { IImage } from "./Entities/Image";
-import { CreateImageRequest } from "./Request";
-import { CreateImageResponse } from "./Response";
+import { ApiClient } from "../ApiClient";
+import { IImage } from "../Entities/Image";
+import { CreateImageRequest } from "../Request";
+import { CreateImageResponse } from "../Response";
 
 export class ImageApiClient extends ApiClient {
     constructor(baseUrl: string) {
         super(baseUrl);
     }
     public async getImage(id: string): Promise<IImage> {
-        return this.fetch<IImage>(`/images/${id}`);
+        return this.fetch<IImage>(`images/${id}`);
     }
     public async getImages(): Promise<IImage[]> {
-        return this.fetch<IImage[]>("/images");
+        return this.fetch<IImage[]>("images");
     }
     public async createImage(
         image: CreateImageRequest
@@ -19,7 +19,10 @@ export class ImageApiClient extends ApiClient {
         const fd = new FormData();
         Object.entries(image).forEach(([key, value]) => fd.append(key, value));
 
-        return this.fetch<CreateImageResponse>("/image/create", {
+        for (const f of fd.entries()) {
+            console.log(f);
+        }
+        return this.fetch<CreateImageResponse>("api/image/create", {
             method: "POST",
             body: fd
         });
