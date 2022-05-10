@@ -1,5 +1,10 @@
 import { createApp } from "vue";
-import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
+import {
+    createRouter,
+    createWebHashHistory,
+    createWebHistory,
+    RouteRecordRaw
+} from "vue-router";
 import App from "./App.vue";
 import UploadImageView from "./components/UploadImage/UploadImageView.vue";
 import Home from "./components/Home.vue";
@@ -14,7 +19,7 @@ const routes: RouteRecordRaw[] = [
 
 const router = createRouter({
     // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes // short for `routes: routes`
 });
 

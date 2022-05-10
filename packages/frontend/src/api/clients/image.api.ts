@@ -18,10 +18,6 @@ export class ImageApiClient extends ApiClient {
     ): Promise<CreateImageResponse> {
         const fd = new FormData();
         Object.entries(image).forEach(([key, value]) => fd.append(key, value));
-
-        for (const f of fd.entries()) {
-            console.log(f);
-        }
         return this.fetch<CreateImageResponse>("api/image/create", {
             method: "POST",
             body: fd

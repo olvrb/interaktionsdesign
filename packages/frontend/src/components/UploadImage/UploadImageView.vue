@@ -43,6 +43,8 @@ export default {
         validateForm() {},
         submitForm: async function(event: Event) {
             event.preventDefault();
+
+            // extract all form data
             const info = {
                 imageName: (this.$refs.title as HTMLInputElement).value,
                 description: (this.$refs.description as HTMLInputElement).value,
@@ -54,8 +56,13 @@ export default {
                     .value,
                 uses: 0
             };
-            console.log(await imageApiClient.createImage(info));
-            console.log(info);
+            const res = await imageApiClient.createImage(info);
+
+            if (res.id) {
+                this.$router.push("/?success=true");
+            } else {
+                alert("no success, try again");
+            }
         }
     }
 };
