@@ -7,12 +7,13 @@ export async function SearchCategoriesHandler(
     res: Response,
     next: NextFunction
 ) {
-    const { query } = req.params;
+    let { query } = req.params;
+    if (!query) query = "";
 
     // Find all categories that match the query
     let dbCategories: Category[];
 
-    if (!query) {
+    /* if (!query) {
         dbCategories = await getTreeRepository(Category).find({
             relations: ["children", "parent"]
         });
@@ -29,7 +30,14 @@ export async function SearchCategoriesHandler(
         if (category.children?.length === 0) {
             result.push(category);
         }
-    }
+    } */
+    dbCategories = await (await getTreeRepository(Category).findTrees()).filter(
+        (x) => {
+            return (
+                x.children && x.name.toLowerCase().includes(query.toLowerCase())
+            );
+        }
+    );
 
-    res.json(result);
+    res.json(dbCategories);
 }
