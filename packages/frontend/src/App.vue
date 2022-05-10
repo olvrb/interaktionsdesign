@@ -8,6 +8,7 @@ export default {
 
 <template>
   <TopBar></TopBar>
+
 </template>
 
 <style>
