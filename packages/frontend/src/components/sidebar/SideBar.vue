@@ -2,6 +2,7 @@
 import { collapsed, toggleSidebar, sidebarWidth } from "./State";
 
 export default {
+    props: {},
     components: { sidebarWidth },
     setup() {
         return { collapsed, toggleSidebar, sidebarWidth };
@@ -11,6 +12,7 @@ export default {
 
 <template>
     <div class="sidebar" :style="{ width: sidebarWidth }">
+        <!-- Span creates a image which can be clicked to collapse the sidebar -->
         <span
             class="collapse-icon"
             :class="{ 'rotate-180': collapsed }"
@@ -31,7 +33,7 @@ export default {
 
 <style scoped>
 .sidebar {
-    color: white;
+    color: rgb(230, 16, 16);
     background-color: var(--sidebar-bg-color);
 
     float: left;
@@ -49,6 +51,7 @@ export default {
 }
 
 .collapse-icon {
+    /* Sets position of rotated icon */
     position: absolute;
     bottom: 0;
     padding: 0.75em;
@@ -59,6 +62,7 @@ export default {
 }
 
 .rotate-180 {
+    /* Rotate the icon 180 degrees */
     transform: rotate(180deg);
     transition: 0.2s linear;
 }
