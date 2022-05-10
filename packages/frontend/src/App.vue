@@ -7,11 +7,16 @@ import UploadImageView from "./components/UploadImage/UploadImageView.vue";
 import { CategoryApiClient } from "./api/clients/category.api";
 </script>
 <script lang="ts">
+export default {
+    
+import { TopBar } from "./components/TopBar.vue";
 let categoryApiClient: CategoryApiClient;
 export default {
-    props: {
+  name: "App",
+  props: {
         baseUrl: String
-    }
+  },
+  components: { TopBar },
 };
 </script>
 
@@ -20,6 +25,7 @@ export default {
     <router-link to="/upload">Upload</router-link>
 
     <router-view></router-view>
+
 </template>
 
 <style>
