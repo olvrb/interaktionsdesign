@@ -39,6 +39,8 @@ export default {
     },
     async created() {},
     methods: {
+        // TODO: add validation
+        validateForm() {},
         submitForm: async function(event: Event) {
             event.preventDefault();
             const info = {

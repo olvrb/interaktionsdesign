@@ -16,11 +16,10 @@ export default {
 </script>
 
 <template>
-    <UploadImageView
-        :category-api-client="
-            baseUrl ? new CategoryApiClient(baseUrl) : undefined
-        "
-    />
+    <router-link to="/">Home</router-link>
+    <router-link to="/upload">Upload</router-link>
+
+    <router-view></router-view>
 </template>
 
 <style>
