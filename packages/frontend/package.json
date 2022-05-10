@@ -8,7 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "@vicons/ionicons5": "^0.12.0",
+    "vue": "^3.2.25",
+    "vue-formulate": "^0.12.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",

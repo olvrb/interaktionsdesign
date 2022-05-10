@@ -7,5 +7,4 @@ export async function ReadImagesHandler(
     next: NextFunction
 ) {
     res.json(await ImageService.GetImages());
-    // res.json(await Item.find());
 }
