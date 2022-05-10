@@ -3,6 +3,6 @@ export interface CreateImageRequest {
     description: string;
     categoryId: string;
     uses: number;
-    file: File;
+    file: File | undefined;
     keywords: string;
 }
