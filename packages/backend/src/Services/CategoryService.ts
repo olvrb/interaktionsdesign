@@ -26,31 +26,6 @@ export class CategoryService {
                 new Category("basketball", sport),
                 new Category("tennis", sport)
             ]);
-
-            console.log(
-                JSON.stringify(await getTreeRepository(Category).findTrees())
-            );
-
-            /* await Category.save([]);
-            await Category.save([
-                root,
-                sport,
-                food,
-                kultur,
-                new Category("museum", kultur),
-                new Category("teater", kultur),
-                new Category("musik", kultur),
-                new Category("pizza", food),
-                new Category("burger", food),
-                new Category("football", sport),
-                new Category("basketball", sport),
-                new Category("tennis", sport)
-            ]); */
-            /* console.log(
-                await Category.findOneOrFail({
-                    where: { name: "root" }
-                })
-            ); */
         }
     }
 
