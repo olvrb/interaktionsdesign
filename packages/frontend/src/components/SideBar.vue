@@ -3,6 +3,7 @@ import { ref } from "@vue/reactivity";
 import { CategoryApiClient } from "../api/clients/category.api";
 import { ImageApiClient } from "../api/clients/image.api";
 import { ICategory } from "../api/Entities/Category";
+import CategoryViewer from "./CategoryViewer.vue";
 
 let dropdown = ref();
 let categoryApiClient: CategoryApiClient;
@@ -38,34 +39,21 @@ export default {
             } else {
                 dropdownContent.style.display = "block";
             }
+        },
+        filter() {
+            const categoryId = (this.$refs.selectedCategory as any).$refs
+                .selectedCategory.value;
+            console.log(categoryId);
         }
-    }
+    },
+    components: { CategoryViewer }
 };
 </script>
 <template>
     <div class="sidenav">
         <h3>Filter</h3>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#clients">Clients</a>
-        <a href="#contact">Contact</a>
-        <button @click="toggleDropdown" :ref="dropdown" class="dropdown-btn">
-            Kategorier
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <div
-                v-for="category in categories"
-                :key="category.id"
-                class="dropdown-container"
-            >
-                <a
-                    v-for="subcategory in category.children"
-                    :key="subcategory.id"
-                    href="#"
-                    >{{ subcategory.name }}</a
-                >
-            </div>
+        <div id="categories">
+            <category-viewer ref="selectedCategory" :categories="categories" />
         </div>
     </div>
 </template>

@@ -9,6 +9,7 @@ import {
     NAutoComplete
 } from "naive-ui";
 import { CategoryApiClient } from "../../api/clients/category.api";
+import CategoryViewer from "../CategoryViewer.vue";
 </script>
 <script lang="ts">
 import { onBeforeMount, ref } from "vue";
@@ -52,11 +53,14 @@ export default {
                     .value,
                 keywords: (this.$refs.keywords as HTMLInputElement).value,
                 file: (this.$refs.file as HTMLInputElement).files?.[0],
-                categoryId: (this.$refs.selectedCategory as HTMLInputElement)
-                    .value,
+                // get child ref for input value
+                categoryId: ((this.$refs.selectedCategory as any).$refs
+                    .selectedCategory as HTMLInputElement).value,
                 uses: 0
             };
             const res = await imageApiClient.createImage(info);
+
+            console.log(info);
 
             if (res.id) {
                 this.$router.push("/?success=true");
@@ -136,24 +140,10 @@ export default {
                             </div>
                             <div id="categoryDiv">
                                 <label for="cars">Välj en kategori</label>
-                                <select
+                                <category-viewer
                                     ref="selectedCategory"
-                                    name="category"
-                                    id="category"
-                                >
-                                    <optgroup
-                                        :label="category.name"
-                                        v-for="category in categories"
-                                        :key="category.id"
-                                    >
-                                        <option
-                                            :value="subcategory.id"
-                                            v-for="subcategory in category.children"
-                                            :key="subcategory.id"
-                                            >{{ subcategory.name }}</option
-                                        >
-                                    </optgroup>
-                                </select>
+                                    :categories="categories"
+                                />
                             </div>
                         </div>
                     </div>
