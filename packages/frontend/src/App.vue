@@ -24,7 +24,7 @@ import ImageViewer from "./components/ImageViewer.vue";
     <!--<popup2
       v-if="popupTriggers.buttonTrigger" 
 			:TogglePopup="() => TogglePopup('buttonTrigger')">
-      <h2>My Button Popup2 the lower</h2>
+      <h2>My Button Popup2 the lower</h2>ta bort?
     </popup2>-->
 	</main>
 </template>

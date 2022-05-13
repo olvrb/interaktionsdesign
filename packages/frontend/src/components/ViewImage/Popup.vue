@@ -119,7 +119,7 @@ export default {
         right: 0;
         bottom: 0;
         z-index: 99;     
-        background-color: rgba(0, 0, 0, 0.5); //Fixa background color så den tar hela skärmen?
+        background-color: rgba(0, 0, 0, 0.5); // Fixa background color så den tar hela skärmen?
         
         display: flex;
         align-items: center;
