@@ -10,9 +10,8 @@ export async function CreateImageHandler(
     res: Response,
     next: NextFunction
 ) {
-    console.log(req.body);
     if (!req.files) {
-        return next(createHttpError(404, "file missing"));
+        return next(createHttpError(404));
     }
     let {
         imageName,
