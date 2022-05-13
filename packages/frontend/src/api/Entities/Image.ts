@@ -7,4 +7,5 @@ export interface IImage {
     usesLeft: number;
     category: ICategory;
     keywords: IKeyword[];
+    photographer: string;
 }
