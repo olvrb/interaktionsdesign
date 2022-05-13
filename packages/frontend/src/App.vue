@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-    <TopBar></TopBar>
+    <top-bar />
 
     <router-view></router-view>
 </template>
