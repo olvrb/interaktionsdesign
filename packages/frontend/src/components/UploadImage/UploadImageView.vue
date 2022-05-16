@@ -9,7 +9,7 @@ import {
     NAutoComplete
 } from "naive-ui";
 import { CategoryApiClient } from "../../api/clients/category.api";
-import CategoryViewer from "../CategoryViewer.vue";
+import CategoryViewer from "../DataSelection/CategoryViewer.vue";
 </script>
 <script lang="ts">
 import { onBeforeMount, ref } from "vue";

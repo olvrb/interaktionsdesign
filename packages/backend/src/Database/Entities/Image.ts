@@ -102,4 +102,8 @@ export class Image extends BaseEntity {
     )
     @JoinTable()
     public keywords: Keyword[];
+
+    public getKeywords(): string[] {
+        return this.keywords.map((keyword) => keyword.name);
+    }
 }

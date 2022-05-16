@@ -9,6 +9,7 @@ import { ErrorHandler } from "./middleware/error";
 import { CreateKeywordHandler } from "./api/keyword/create";
 import { SearchKeywordsHandler } from "./api/keyword/search";
 import { SearchCategoriesHandler } from "./api/category/search";
+import { SearchImagesHandler } from "./api/image/search";
 
 export function BindControllers() {
     /*  Images  */
@@ -17,6 +18,7 @@ export function BindControllers() {
     app.delete("/api/image/delete/:id", DeleteImageHandler);
     app.get("/api/image/:id/info", ReadImageInfoHandler);
     app.get("/api/image/:id", ReadImageHandler);
+    app.get("/api/images/search", SearchImagesHandler);
 
     /*  Categories  */
     app.get("/api/categories", ReadCategoriesHandler);

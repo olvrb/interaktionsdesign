@@ -7,6 +7,8 @@ export class ImageApiClient extends ApiClient {
     constructor(baseUrl: string) {
         super(baseUrl);
     }
+
+    public async search();
     public async getImage(id: string): Promise<IImage> {
         return this.fetch<IImage>(`images/${id}`);
     }
