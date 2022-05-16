@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Ref, ref } from "@vue/reactivity";
-import { ICategory } from "../api/Entities/Category";
+import { ICategory } from "../../api/Entities/Category";
 ref();
 defineProps<{
     categories: ICategory[] | undefined;

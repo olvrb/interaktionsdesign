@@ -1,8 +1,8 @@
 <script lang="ts">
 import { ref } from "@vue/reactivity";
-import { CategoryApiClient } from "../api/clients/category.api";
-import { ImageApiClient } from "../api/clients/image.api";
-import { ICategory } from "../api/Entities/Category";
+import { CategoryApiClient } from "../../api/clients/category.api";
+import { ImageApiClient } from "../../api/clients/image.api";
+import { ICategory } from "../../api/Entities/Category";
 import CategoryViewer from "./CategoryViewer.vue";
 
 let dropdown = ref();
