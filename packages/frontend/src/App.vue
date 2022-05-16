@@ -1,50 +1,64 @@
-<script setup lang="ts">
+<!--<script setup lang="ts"> 
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import HelloWorld from "./components/HelloWorld.vue";
+import ImageBox from "./components/ImageBox.vue";
+import ImageViewer from "./components/ImageViewer.vue";
+</script> -->
 
-import { ref } from "@vue/reactivity";
-import UploadImageView from "./components/UploadImage/UploadImageView.vue";
-import { CategoryApiClient } from "./api/clients/category.api";
-import TopBar from "./components/TopBar.vue";
-</script>
-<script lang="ts">
-let categoryApiClient: CategoryApiClient;
-export default {
-    name: "App",
-    props: {
-        baseUrl: String
-    }
-    // components: { TopBar }
-};
-</script>
+<!-- <template>
+  <HelloWorld msg="Nyhetssida" />
+  <ImageViewer />
+</template>-->
 
 <template>
-    <top-bar />
-
-    <router-view></router-view>
+	<main>
+		<h1>Vue Popups</h1>
+		<button @click="() => TogglePopup('buttonTrigger')">Open Popup</button>
+		
+		<popup
+			v-if="popupTriggers.buttonTrigger" 
+			:TogglePopup="() => TogglePopup('buttonTrigger')">
+			
+		</popup>
+    <!--<popup2
+      v-if="popupTriggers.buttonTrigger" 
+			:TogglePopup="() => TogglePopup('buttonTrigger')">
+      <h2>My Button Popup2 the lower</h2>ta bort?
+    </popup2>-->
+	</main>
 </template>
 
-<style>
-@import "./assets/style.css";
+<script>
+import { ref } from 'vue';
+import popup from './components/ViewImage/Popup.vue';
+export default {
+  components: { popup },
+	setup () {
+		const popupTriggers = ref({
+			buttonTrigger: false
+		});
+		const TogglePopup = (trigger) => {
+			popupTriggers.value[trigger] = !popupTriggers.value[trigger]
+      
+		}
+		
+		return {
+			popup,
+			popupTriggers,
+			TogglePopup
+		}
+	}
+}
+</script>
 
+<style lang="scss">
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-}
-
-#nav {
-    padding: 30px;
-}
-
-#nav a {
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-    color: #42b983;
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+	margin-top: 60px;
 }
 </style>
