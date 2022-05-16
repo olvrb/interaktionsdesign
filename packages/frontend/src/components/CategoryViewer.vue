@@ -17,8 +17,9 @@ defineProps<{
                 :value="subcategory.id"
                 v-for="subcategory in category.children"
                 :key="subcategory.id"
-                >{{ subcategory.name }}</option
             >
+                {{ subcategory.name }}
+            </option>
         </optgroup>
     </select>
 </template>
