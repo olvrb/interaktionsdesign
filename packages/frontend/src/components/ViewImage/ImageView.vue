@@ -42,12 +42,7 @@ export default {
         <n-grid-item v-for="image in images" :key="image.id">
             <div>{{ image.name }}</div>
             <div class="special">
-                <ImageBox
-                    :image-info="image"
-                    :title="image.name"
-                    description="{{ image.description }}"
-                    :imageSrc="`${baseUrl}/api/image/${image.id}`"
-                />
+                <ImageBox :image-info="image" />
             </div>
         </n-grid-item>
     </n-grid>
