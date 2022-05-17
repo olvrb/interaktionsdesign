@@ -8,7 +8,7 @@ export async function SearchImagesHandler(
     res: Response,
     next: NextFunction
 ) {
-    let { titleQuery, keywordQuery } = req.query;
+    let { titleQuery, keywordQuery, categoryId } = req.query;
     console.log(titleQuery, keywordQuery);
 
     if (!titleQuery) titleQuery = "";
@@ -19,6 +19,10 @@ export async function SearchImagesHandler(
     ).filter((x) =>
         x.keywords.some((x) => x.name.includes(keywordQuery as string))
     );
+
+    if (typeof categoryId === "string" && categoryId !== "") {
+        dbImages = dbImages.filter((x) => x.category?.id === categoryId);
+    }
 
     res.json(dbImages);
 }
