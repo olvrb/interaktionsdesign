@@ -6,22 +6,10 @@ export default {};
 import { template } from "lodash";
 import { ref } from "vue";
 let input = ref("");
-const fruits = ["apple", "banana", "orange"];
-function filteredList() {
-    return fruits.filter((fruit) =>
-        fruit.toLowerCase().includes(input.value.toLowerCase())
-    );
-}
 </script>
 
 <template>
-    <input type="text" v-model="input" placeholder="Search fruits..." />
-    <div class="item fruit" v-for="fruit in filteredList()" :key="fruit">
-        <p>{{ fruit }}</p>
-    </div>
-    <div class="item error" v-if="input && !filteredList().length">
-        <p>No results found!</p>
-    </div>
+    <input type="text" v-model="input" placeholder="Search for keyword..." />
 </template>
 
 <style>
@@ -45,7 +33,7 @@ input {
     width: 350px;
     margin: 20px auto;
     padding: 10px 45px;
-    background: white url("assets/search-icon.svg") no-repeat 15px center;
+    background: white url("@/assets/search-icon.svg") no-repeat 15px center;
     background-size: 15px 15px;
     font-size: 16px;
     border: none;

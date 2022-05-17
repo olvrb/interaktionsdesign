@@ -4,6 +4,7 @@ import { CategoryApiClient } from "../api/clients/category.api";
 import { ImageApiClient } from "../api/clients/image.api";
 import { ICategory } from "../api/Entities/Category";
 import CategoryViewer from "./CategoryViewer.vue";
+import SearchInput from "./DataSelection/SearchInput.vue";
 
 let dropdown = ref();
 let categoryApiClient: CategoryApiClient;
@@ -46,15 +47,17 @@ export default {
             console.log(categoryId);
         }
     },
-    components: { CategoryViewer }
+    components: { CategoryViewer, SearchInput }
 };
 </script>
+
 <template>
     <div class="sidenav">
         <h3>Filter</h3>
         <div id="categories">
             <category-viewer ref="selectedCategory" :categories="categories" />
         </div>
+        <search-input />
     </div>
 </template>
 
