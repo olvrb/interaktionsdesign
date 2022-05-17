@@ -21,10 +21,6 @@ export class ImageApiClient extends ApiClient {
                 categoryId: categoryId ?? ""
             })}`
         );
-
-        /*  return this.fetch<IImage[]>(
-            `api/images/search?titleQuery=${titleQuery}&keywordQuery=${keywordQuery}`
-        ); */
     }
     public async getImage(id: string): Promise<IImage> {
         return this.fetch<IImage>(`images/${id}`);
