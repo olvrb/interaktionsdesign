@@ -8,7 +8,12 @@ export async function CreateImageHandler(
     res: Response,
     next: NextFunction
 ) {
-    const r = ImageService.GetImage(req.params.id); // or any other way to get a readable stream
+    let r;
+    try {
+        r = await ImageService.GetImageFile(req.params.id); // or any other way to get a readable stream
+    } catch (error) {
+        return next(error);
+    }
     const ps = new stream.PassThrough(); // <---- this makes a trick with stream error handling
     stream.pipeline(
         r,

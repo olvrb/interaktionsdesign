@@ -1,23 +1,21 @@
-import {
-    BaseEntity,
-    Column,
-    Entity,
-    Generated,
-    ManyToOne,
-    OneToMany,
-    PrimaryColumn,
-    PrimaryGeneratedColumn
-} from "typeorm";
+import { JoinTable, ManyToMany, Entity, Column } from "typeorm";
+import { BaseEntity } from "./BaseEntity";
 import { Image } from "./Image";
 
 @Entity()
 export class Keyword extends BaseEntity {
-    @PrimaryGeneratedColumn("uuid")
-    public Id: String;
+    constructor(name: string) {
+        super();
+        this.name = name;
+    }
 
-    @ManyToOne(
-        (image) => Image,
+    @Column()
+    public name: string;
+
+    @ManyToMany(
+        (type) => Image,
         (image) => image.keywords
     )
-    public image: Image;
+    @JoinTable()
+    public images: Image[];
 }
