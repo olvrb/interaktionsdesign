@@ -8,7 +8,14 @@ export class ImageApiClient extends ApiClient {
         super(baseUrl);
     }
 
-    public async search();
+    public async search(
+        titleQuery: string,
+        keywordQuery: string
+    ): Promise<IImage[]> {
+        return this.fetch<IImage[]>(
+            `api/images/search?titleQuery=${titleQuery}&keywordQuery=${keywordQuery}`
+        );
+    }
     public async getImage(id: string): Promise<IImage> {
         return this.fetch<IImage>(`images/${id}`);
     }

@@ -1,10 +1,31 @@
+<script lang="ts">
+import { ref } from "@vue/reactivity";
+import { IImage } from "../../api/Entities/Image";
+let imageInfo = ref<IImage>();
+export default {
+    props: {
+        TogglePopup: {
+            type: String
+        },
+        ImageInfo: {
+            type: Object as () => IImage
+        },
+        baseUrl: {
+            type: String,
+            default: "http://localhost:3224"
+        }
+    },
+    beforeMount: function() {
+        console.log(this.ImageInfo);
+    }
+};
+</script>
+
 <template>
     <div class="popup">
         <div class="popup-inner">
-            <slot />
             <div class="popup-insideimg">
-                <img src="assets/test.jpg" alt="test" />
-                <!--Call on image from images-->
+                <img :src="`${baseUrl}/api/image/${ImageInfo.id}`" alt="test" />
             </div>
             <div class="popup-exitbtn">
                 <input
@@ -19,7 +40,7 @@
         <div class="btm-popup">
             <div class="btm-popuptitle">
                 <h2>
-                    <strong>Titel på bild</strong>
+                    <strong>{{ ImageInfo.name }}</strong>
                     <!-- Titel på bild tagen från databas-->
                 </h2>
 
@@ -28,38 +49,26 @@
                 </div>
 
                 <div class="tag-foundationtot">
-                    <div class="tag-foundation1"></div>
-
-                    <div class="tag-foundation2"></div>
-
-                    <div class="tag-foundation3"></div>
-
-                    <div class="tag-foundation4"></div>
-
-                    <div class="tag-foundation5"></div>
+                    <div
+                        v-for="(keyword, index) in ImageInfo.keywords.slice(
+                            0,
+                            4
+                        )"
+                        :key="keyword.id"
+                        :class="`tag-foundation${index + 1}`"
+                    ></div>
                 </div>
 
                 <div class="tagtot">
-                    <!--Lägga in så att alla txt taggar ändras beroende på vad för taggar som läggs in och så att dem är invisible om inte alla är ifyllda, max 5-->
-
-                    <div class="tag-txt1">
-                        <p>tagg1</p>
-                    </div>
-
-                    <div class="tag-txt2">
-                        <p>tagg2</p>
-                    </div>
-
-                    <div class="tag-txt3">
-                        <p>tagg3</p>
-                    </div>
-
-                    <div class="tag-txt4">
-                        <p>tagg4</p>
-                    </div>
-
-                    <div class="tag-txt5">
-                        <p>tagg5</p>
+                    <div
+                        v-for="(keyword, index) in ImageInfo.keywords.slice(
+                            0,
+                            4
+                        )"
+                        :key="keyword.id"
+                        :class="`tag-txt${index + 1}`"
+                    >
+                        <p>{{ keyword.name }}</p>
                     </div>
                 </div>
 
@@ -68,7 +77,7 @@
                 </div>
 
                 <div class="btm-photographername">
-                    <p>Test testsson</p>
+                    <p>{{ ImageInfo.photographer }}</p>
                 </div>
 
                 <div class="btm-desctitle">
@@ -77,11 +86,7 @@
 
                 <div class="btm-desc">
                     <p>
-                        Geckos are a group of usually small, usually nocturnal
-                        lizards. They are found on every continent except
-                        Australia. Geckos are a group of usually small, usually
-                        nocturnal lizards. They are found on every continent
-                        except Australia.
+                        {{ ImageInfo.description }}
                     </p>
                 </div>
                 <!--Lägga in så att man kan köra desc när man klickar på en knapp-->
@@ -92,7 +97,7 @@
                     </p>
 
                     <div class="btm-imageusedcolourred">
-                        <p>N</p>
+                        <p>{{ ImageInfo.usesLeft }}</p>
                         <!--N, skriv in så att den kan ändras beroende på databas-->
                     </div>
 
@@ -105,19 +110,18 @@
                 </div>
 
                 <div class="btm-download">
-                    <p><strong>Ladda ner</strong></p>
+                    <a
+                        target="_blank"
+                        :href="`${baseUrl}/api/image/${ImageInfo.id}`"
+                    >
+                        <p><strong>Ladda ner</strong></p>
+                    </a>
                     <!--Gör så att det går att ladda ner, lägg in en nedladdningsikon också-->
                 </div>
             </div>
         </div>
     </div>
 </template>
-
-<script>
-export default {
-    props: ["TogglePopup"]
-};
-</script>
 
 <style lang="scss" scoped>
 .popup {
@@ -143,15 +147,19 @@ export default {
         background: #fff;
         padding: 32px;
         top: -100px;
-        height: 400px;
-        width: 800px;
+        height: auto;
+        width: auto;
         border-radius: 4%;
         margin-bottom: 5px;
 
         .popup-insideimg {
             position: relative;
-            width: 800px;
-            height: 350px;
+            width: auto;
+            height: auto;
+        }
+        .popup-insideimg img {
+            width: 50%;
+            height: auto;
         }
 
         .popup-exitbtn {

@@ -1,17 +1,34 @@
 <script setup lang="ts">
 import { NGrid, NGridItem, NSpace, NImageGroup, NImage } from "naive-ui";
+import ImageBox from "./ImageBox.vue";
+</script>
+<script lang="ts">
 import { onBeforeMount, ref } from "vue";
-import ImageBox from "../ImageBox.vue";
+import { CategoryApiClient } from "../../api/clients/category.api";
+import { IImage } from "../../api/Entities/Image";
+import { ImageApiClient } from "../../api/clients/image.api";
 
 const filesystem = ref<any>();
+const images = ref<IImage[]>();
+let imageApiClient: ImageApiClient;
 
-onBeforeMount(async () => {
-    filesystem.value = await (
-        await fetch("http://localhost:3224/api/images", { mode: "cors" })
-    ).json();
-});
-
-defineProps<{}>();
+export default {
+    props: {
+        baseUrl: {
+            type: String,
+            default: "http://localhost:3224"
+        }
+    },
+    data() {
+        return {};
+    },
+    async beforeMount() {
+        imageApiClient = new ImageApiClient(this.baseUrl);
+        images.value = await imageApiClient.search("", "");
+        console.log(images.value);
+    },
+    async created() {}
+};
 </script>
 <template>
     <!-- <a>{{ filesystem }}</a> -->
@@ -22,16 +39,14 @@ defineProps<{}>();
         cols="2 s:3 m:4 l:5 xl:6 2xl:7"
         responsive="screen"
     >
-        <n-grid-item v-for="file in filesystem" :key="file">
-            <div>{{ file.fileName }}</div>
+        <n-grid-item v-for="image in images" :key="image.id">
+            <div>{{ image.name }}</div>
             <div class="special">
                 <ImageBox
-                    v-if="!file.isDirectory"
-                    :title="file.fileName"
-                    description="{{ file.fileName }}"
-                    :imageSrc="
-                        `http://localhost:3224/api/image/${file.fileName}`
-                    "
+                    :image-info="image"
+                    :title="image.name"
+                    description="{{ image.description }}"
+                    :imageSrc="`${baseUrl}/api/image/${image.id}`"
                 />
             </div>
         </n-grid-item>
