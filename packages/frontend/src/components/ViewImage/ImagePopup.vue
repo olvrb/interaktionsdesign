@@ -119,6 +119,10 @@ export default {
                     </a>
                     <!--Gör så att det går att ladda ner, lägg in en nedladdningsikon också-->
                 </div>
+
+                <div class="btm-delete">
+                    
+                </div>
             </div>
         </div>
     </div>
@@ -199,18 +203,18 @@ export default {
         .btm-popupkeywrd {
             position: absolute;
             left: 46%;
-            top: 2%;
+            top: 30px;
         }
 
         .tag-foundationtot {
             position: absolute;
-            margin-left: 47%;
-            top: 18%;   
-            width: 100%        
+            margin-left: 46%;
+            top: 70px;   
+            width: 100%;        
         }
 
         .tag-foundation1 {
-            position: relative;
+            position: absolute;
             margin-right: 1%;
             height: 30px;
             width: 70px;
@@ -220,8 +224,8 @@ export default {
         }
 
         .tag-foundation2 {
-            position: relative;
-            margin-right: 1%;
+            position: absolute;           
+            left:10%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -230,8 +234,8 @@ export default {
         }
 
         .tag-foundation3 {
-            position: relative;
-            margin-right: 1%;
+            position: absolute;
+            left:20%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -240,8 +244,8 @@ export default {
         }
 
         .tag-foundation4 {
-            position: relative;
-            margin-right: 1%;
+            position: absolute;
+            left:30%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -250,8 +254,8 @@ export default {
         }
 
         .tag-foundation5 {
-            position: relative;
-            margin-right: 1%;
+            position: absolute;
+            left:40%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -259,42 +263,48 @@ export default {
             float: left;
         }
 
-        .tagtot { //FIXA ALLA DEM
+        .tagtot {
             position: absolute;
-            left: 49.6%;
-            top: 14%;
+            left: -10px;
+            top: 100px;
             width: 100%;
         }
             .tag-txt1 {
-                position: relative;
-                margin-right: 1%;
+                position: absolute;
+                top: -40px;
+                left:48.5%;
                 display: inline-block;
                 float: left;
             }
 
             .tag-txt2 {
-                position: relative;
-                margin-right: 4.9%; //Ändra på alla taggar
+                position: absolute;   
+                top: -40px;
+                left:58.5%;          
                 display: inline-block;
                 float: left;
             }
 
             .tag-txt3 {
-                position: relative;
-                margin-right: 4.9%;
+                position: absolute;
+                top: -40px;
+                left:68.5%; 
                 display: inline-block;
                 float: left;
             }
 
             .tag-txt4 {
-                position: relative;
-                margin-right: 4.9%; //kanske får ändra
+                position: absolute; 
+                top: -40px;
+                left:78.5%;              
                 display: inline-block;
                 float: left;
             }
 
             .tag-txt5 {
-                position: relative;
+                position: absolute;
+                top: -40px;
+                left:88.5%;
                 display: inline-block;
                 float: left;
             }
@@ -302,48 +312,50 @@ export default {
     
 
     .btm-photographer {
-        position: relative;
-        left: 0.7%;
-        top: 10px;
+        position: absolute;
+        left: 46%;
+        top: 90px;
     }
 
     .btm-photographername {
-        position: relative;        
-        top: -5px;        
+        position: absolute;        
+        top: 115px;   
+        left: 46%;     
     }
 
     .btm-desctitle {
-        position: relative;
-        left: -25px;
+        position: absolute;
+        left: 46%;
+        top:140px;
     }
 
     .btm-desc {
-        position: relative;
-        top: -15px;
-        left: 25.8%;        
-        max-width: 700px;
+        position: absolute;
+        top: 165px;
+        left: 46%;        
+        max-width: 1500px;
     }
 
     .btm-imageused {
         position: absolute;
         left: 110%;
-        top: -5%;
+        top: -10px;
         z-index: 99;
     }
     .btm-imageusedcolourred {
-        position: relative;
+        position: absolute;
         color: red;
-        margin-top: -15px;
-        margin-bottom: -15px;
+        left: 30px;
+        top:92px;
     }
 
     .btm-edit {
-        position: relative;
+        position: absolute;
         color: purple;
         left: 126%;
-        top: -200px;
+        top: 120px;
         width: 12%;
-        height: 10%;
+        height: 50px;
         border: 2px;
         border-style: solid;
         border-radius: 15%;
@@ -351,12 +363,12 @@ export default {
     }
 
     .btm-download {
-        position: relative;
+        position: absolute;
         color: purple;
         left: 126%;
-        top: -180px;
+        top: 190px;
         width: 12%;
-        height: 10%;
+        height: 50px;
         border: 2px;
         border-style: solid;
         border-radius: 15%;
