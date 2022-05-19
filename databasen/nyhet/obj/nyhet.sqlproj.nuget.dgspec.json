@@ -1,0 +1,51 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\berga\\interaktionsdesign\\databasen\\nyhet\\nyhet.sqlproj": {}
+  },
+  "projects": {
+    "c:\\Users\\berga\\interaktionsdesign\\databasen\\nyhet\\nyhet.sqlproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\berga\\interaktionsdesign\\databasen\\nyhet\\nyhet.sqlproj",
+        "projectName": "nyhet",
+        "projectPath": "c:\\Users\\berga\\interaktionsdesign\\databasen\\nyhet\\nyhet.sqlproj",
+        "packagesPath": "C:\\Users\\berga\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\berga\\interaktionsdesign\\databasen\\nyhet\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\berga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net46"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net46": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net46": {
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          }
+        }
+      }
+    }
+  }
+}

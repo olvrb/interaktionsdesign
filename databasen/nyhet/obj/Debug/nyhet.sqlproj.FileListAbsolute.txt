@@ -1,0 +1,10 @@
+c:\Users\berga\interaktionsdesign\databasen\nyhet\bin\Debug\nyhet.dacpac
+c:\Users\berga\interaktionsdesign\databasen\nyhet\bin\Debug\nyhet.dll
+c:\Users\berga\interaktionsdesign\databasen\nyhet\bin\Debug\nyhet.pdb
+c:\Users\berga\interaktionsdesign\databasen\nyhet\obj\Debug\nyhet.sqlproj.AssemblyReference.cache
+c:\Users\berga\interaktionsdesign\databasen\nyhet\obj\Debug\Model.xml
+c:\Users\berga\interaktionsdesign\databasen\nyhet\obj\Debug\refactor.xml
+c:\Users\berga\interaktionsdesign\databasen\nyhet\obj\Debug\postdeploy.sql
+c:\Users\berga\interaktionsdesign\databasen\nyhet\obj\Debug\predeploy.sql
+c:\Users\berga\interaktionsdesign\databasen\nyhet\obj\Debug\nyhet.dll
+c:\Users\berga\interaktionsdesign\databasen\nyhet\obj\Debug\nyhet.pdb

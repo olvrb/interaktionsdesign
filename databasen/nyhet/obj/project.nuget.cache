@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "7WVffZcCQ1T0Ihj2JzpBQwvybpX2MjbKx1WD22urv/q/FylIB4WHUfVmABlYJOhIu0jZ13pPIel5+Npdr0+oPA==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\berga\\interaktionsdesign\\databasen\\nyhet\\nyhet.sqlproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\berga\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\berga\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net46\\1.0.0\\microsoft.netframework.referenceassemblies.net46.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
