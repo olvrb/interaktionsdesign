@@ -6,6 +6,11 @@ defineProps<{
     categories: ICategory[] | undefined;
 }>();
 </script>
+
+<script lang="ts">
+export default {};
+</script>
+
 <template>
     <select ref="selectedCategory" name="category" id="category">
         <optgroup
@@ -23,3 +28,11 @@ defineProps<{
         </optgroup>
     </select>
 </template>
+
+<style scoped>
+#categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+</style>
