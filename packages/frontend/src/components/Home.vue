@@ -7,9 +7,7 @@ import ImageView from "./ViewImage/ImageView.vue";
 <template>
     <div>
         <SideBar></SideBar>
-
         <h1>home page</h1>
-
         <ImageView />
     </div>
 </template>

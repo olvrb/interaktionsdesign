@@ -7,13 +7,15 @@ export class CategoryService {
         const currentCats = await CategoryService.GetCategories();
         // (await Category.findOneOrFail({ where: { name: "root" } })).remove();
         if (currentCats.length === 0) {
+            console.log("Creating new categories");
+            
             // const root = new Category("root");
             // await root.save();
 
             const sport = new Category("sport");
             const food = new Category("food");
             const kultur = new Category("kultur");
-            await sport.save();
+            await sport.save(); 
             await food.save();
             await kultur.save();
             await Category.save([

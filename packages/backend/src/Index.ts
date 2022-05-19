@@ -23,7 +23,7 @@ app.use(fileUpload());
 BindControllers();
 
 const port = Configuration.Web.Port;
-// const imageService = new ImageService(Configuration.Web.ImageDirectory);
+// const imageService = new ImageService(Configuryarnation.Web.ImageDirectory);
 connect()
     .then(async () => {
         // await imageService.init();

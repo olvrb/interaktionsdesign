@@ -154,31 +154,32 @@ export default {
 
         .popup-insideimg {
             position: relative;
-            width: auto;
-            height: auto;
+            width: 700px;
+            height: 150px;
         }
         .popup-insideimg img {
             width: 50%;
             height: auto;
+            max-height: 150%;
         }
 
         .popup-exitbtn {
-            position: relative;
-            top: -370px;
-            right: -400px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-top: 1%;
+            margin-right: 1%;
         }
     }
 
     .btm-popup {
         position: fixed;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        left: 527px;
+        margin-top: 22%;          
+        left: 16%;
         right: 0;
-        bottom: 0;
         z-index: 99;
-        height: 300px;
-        width: 865px;
+        height: 45%;
+        width: 68%;
         background-color: #fff;
         border-radius: 4%;
 
@@ -196,13 +197,13 @@ export default {
 
         .tag-foundationtot {
             position: absolute;
-            margin-left: 360px;
-            top: 70px;
+            margin-left: 42%;
+            top: 18%;           
         }
 
         .tag-foundation1 {
             position: relative;
-            margin-right: 30px;
+            margin-right: 3%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -212,7 +213,7 @@ export default {
 
         .tag-foundation2 {
             position: relative;
-            margin-right: 30px;
+            margin-right: 3%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -222,7 +223,7 @@ export default {
 
         .tag-foundation3 {
             position: relative;
-            margin-right: 30px;
+            margin-right: 3%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -232,7 +233,7 @@ export default {
 
         .tag-foundation4 {
             position: relative;
-            margin-right: 30px;
+            margin-right: 20%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -242,7 +243,7 @@ export default {
 
         .tag-foundation5 {
             position: relative;
-            margin-right: 30px;
+            margin-right: 3%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -252,19 +253,19 @@ export default {
 
         .tagtot {
             position: absolute;
-            left: 375px;
+            left: 44%;
             margin-top: -35px;
 
             .tag-txt1 {
                 position: relative;
-                margin-right: 60px;
+                margin-right: 17%;
                 display: inline-block;
                 float: left;
             }
 
             .tag-txt2 {
                 position: relative;
-                margin-right: 60px;
+                margin-right: 16%; //Ändra på alla taggar
                 display: inline-block;
                 float: left;
             }
@@ -300,7 +301,7 @@ export default {
     .btm-photographername {
         position: relative;
         left: -27px;
-        top: 5px;
+        top: 5px;        
     }
 
     .btm-desctitle {
@@ -311,14 +312,14 @@ export default {
     .btm-desc {
         position: relative;
         top: -15px;
-        left: 355px;
+        left: 25.8%;        
         max-width: 700px;
     }
 
     .btm-imageused {
         position: absolute;
-        left: 970px;
-        top: -30px;
+        left: 110%;
+        top: -5%;
         z-index: 99;
     }
     .btm-imageusedcolourred {
@@ -331,10 +332,10 @@ export default {
     .btm-edit {
         position: relative;
         color: purple;
-        left: 1100px;
+        left: 126%;
         top: -200px;
-        width: 100px;
-        height: 50px;
+        width: 12%;
+        height: 10%;
         border: 2px;
         border-style: solid;
         border-radius: 15%;
@@ -344,12 +345,11 @@ export default {
     .btm-download {
         position: relative;
         color: purple;
-        left: 1100px;
-        top: -200px;
-        width: 100px;
-        height: 50px;
+        left: 126%;
+        top: -180px;
+        width: 12%;
+        height: 10%;
         border: 2px;
-        margin-top: 15px;
         border-style: solid;
         border-radius: 15%;
         border-color: black;
