@@ -11,8 +11,8 @@ export class Configuration {
         port: 3306,
         database: "nyhet",
         synchronize: true,
-        username: "oliver",
-        password: "123456789",
+        username: "Erik",
+        password: "123123",
         logging: false
     };
 }
