@@ -38,12 +38,13 @@ export default {
             </div>
         </div>
         <div class="btm-popup">
-            <div class="btm-popuptitle">
-                <h2>
-                    <strong>{{ ImageInfo.name }}</strong>
+            <div class="btm-popupholder">
+                <div class="btm-popuptitle">
+                    <h2>
+                        <strong>{{ ImageInfo.name }}</strong>
                     <!-- Titel på bild tagen från databas-->
-                </h2>
-
+                    </h2>
+                </div>
                 <div class="btm-popupkeywrd">
                     <h4>Nyckelord</h4>
                 </div>
@@ -185,25 +186,32 @@ export default {
 
         align-items: center;
     }
-    .btm-popuptitle {
+    .btm-popupholder {
         position: relative;
-        left: -350px;
-
+        left: -45%;
+        width: 100%;        
+    }
+    .btm-popuptitle {
+        position: absolute;
+        left:46%;      
+        top:-10%;          
+    }
         .btm-popupkeywrd {
-            position: relative;
-            left: -35px;
-            top: -10px;
+            position: absolute;
+            left: 46%;
+            top: 2%;
         }
 
         .tag-foundationtot {
             position: absolute;
-            margin-left: 42%;
-            top: 18%;           
+            margin-left: 47%;
+            top: 18%;   
+            width: 100%        
         }
 
         .tag-foundation1 {
             position: relative;
-            margin-right: 3%;
+            margin-right: 1%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -213,7 +221,7 @@ export default {
 
         .tag-foundation2 {
             position: relative;
-            margin-right: 3%;
+            margin-right: 1%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -223,7 +231,7 @@ export default {
 
         .tag-foundation3 {
             position: relative;
-            margin-right: 3%;
+            margin-right: 1%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -233,7 +241,7 @@ export default {
 
         .tag-foundation4 {
             position: relative;
-            margin-right: 20%;
+            margin-right: 1%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -243,7 +251,7 @@ export default {
 
         .tag-foundation5 {
             position: relative;
-            margin-right: 3%;
+            margin-right: 1%;
             height: 30px;
             width: 70px;
             background-color: LightGray;
@@ -251,35 +259,36 @@ export default {
             float: left;
         }
 
-        .tagtot {
+        .tagtot { //FIXA ALLA DEM
             position: absolute;
-            left: 44%;
-            margin-top: -35px;
-
+            left: 49.6%;
+            top: 14%;
+            width: 100%;
+        }
             .tag-txt1 {
                 position: relative;
-                margin-right: 17%;
+                margin-right: 1%;
                 display: inline-block;
                 float: left;
             }
 
             .tag-txt2 {
                 position: relative;
-                margin-right: 16%; //Ändra på alla taggar
+                margin-right: 4.9%; //Ändra på alla taggar
                 display: inline-block;
                 float: left;
             }
 
             .tag-txt3 {
                 position: relative;
-                margin-right: 60px;
+                margin-right: 4.9%;
                 display: inline-block;
                 float: left;
             }
 
             .tag-txt4 {
                 position: relative;
-                margin-right: 60px;
+                margin-right: 4.9%; //kanske får ändra
                 display: inline-block;
                 float: left;
             }
@@ -289,19 +298,18 @@ export default {
                 display: inline-block;
                 float: left;
             }
-        }
-    }
+        
+    
 
     .btm-photographer {
         position: relative;
-        left: -40px;
-        top: 20px;
+        left: 0.7%;
+        top: 10px;
     }
 
     .btm-photographername {
-        position: relative;
-        left: -27px;
-        top: 5px;        
+        position: relative;        
+        top: -5px;        
     }
 
     .btm-desctitle {
