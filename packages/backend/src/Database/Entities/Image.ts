@@ -1,7 +1,6 @@
 import {
-    BeforeRemove,
+    BaseEntity,
     Column,
-    DeleteResult,
     Entity,
     ManyToMany,
     ManyToOne
@@ -31,10 +30,11 @@ export class Image extends BaseEntity {
         this.photographer = photographer;
         if (category) this.category = category;
     }
-
-    @BeforeRemove()
-    public async beforeRemove() {
-        ImageService.DeleteImageFile(this.getFileName());
+    /**
+     *
+     */
+    constructor(path: string, fileName: string) {
+        super(path, fileName);
     }
 
     public async setCategory(categoryId) {

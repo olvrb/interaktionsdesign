@@ -1,11 +1,12 @@
 import {
+    BaseEntity,
     Entity,     
     Column, 
     PrimaryGeneratedColumn
-} from "typeorm"; /*har vi typeorm library? */
+} from "typeorm";
 
 @Entity()
-export class Clients /*Extends? den är inte kopplad på lucidchart så isåfall till vad*/{
+export class Clients extends BaseEntity{
     
     @PrimaryGeneratedColumn()
     clientId: number;

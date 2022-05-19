@@ -10,5 +10,21 @@
       "path": "packages/backend"
     }
   ],
-  "settings": {}
+  "settings": {
+    "sqltools.connections": [
+      {
+        "mysqlOptions": {
+          "authProtocol": "default"
+        },
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 3306,
+        "driver": "MySQL",
+        "name": "SQLConnection",
+        "database": "nyhet",
+        "username": "root",
+        "password": "Felaktigt1"
+      }
+    ]
+  }
 }

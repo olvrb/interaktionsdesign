@@ -36,8 +36,5 @@
     "incremental": true,
     "watch": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": ["dist", "ormconfig.js", "src/**/*.old.ts", "images/**/*"]
+  "exclude": ["dist", "ormconfig.js"]
 }

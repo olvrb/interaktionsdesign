@@ -1,8 +1,9 @@
 import { Request, Response, NextFunction } from "express";
+import { Image } from "../../Database/Entities/Image";
+import { ImageService } from "../../Services/ImageService";
 import fs from "fs";
 import stream from "stream";
-import { ImageService } from "../../../Services/ImageService";
-export async function ReadImageHandler(
+export async function CreateImageHandler(
     req: Request,
     res: Response,
     next: NextFunction
