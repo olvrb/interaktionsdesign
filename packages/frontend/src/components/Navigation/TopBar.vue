@@ -4,7 +4,7 @@
 
 <template>
     <div class="topnav">
-        <h1 class="title">Bothniabladet</h1>
+        <div class="title">Bothniabladet</div>
         <router-link to="/">Home</router-link>
         <router-link to="/upload">Upload</router-link>
     </div>

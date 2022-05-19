@@ -3,7 +3,8 @@ import { ref } from "@vue/reactivity";
 import { CategoryApiClient } from "../api/clients/category.api";
 import { ImageApiClient } from "../api/clients/image.api";
 import { ICategory } from "../api/Entities/Category";
-import CategoryViewer from "./CategoryViewer.vue";
+import SearchInput from "./DataSelection/SearchInput.vue";
+import CategoryViewer from "./DataSelection/CategoryViewer.vue";
 
 let dropdown = ref();
 let categoryApiClient: CategoryApiClient;
@@ -46,15 +47,17 @@ export default {
             console.log(categoryId);
         }
     },
-    components: { CategoryViewer }
+    components: { CategoryViewer, SearchInput }
 };
 </script>
+
 <template>
     <div class="sidenav">
         <h3>Filter</h3>
         <div id="categories">
             <category-viewer ref="selectedCategory" :categories="categories" />
         </div>
+        <search-input />
     </div>
 </template>
 
@@ -87,14 +90,12 @@ body {
 }
 
 .sidenav {
-    width: 130px;
+    width: 15%;
     position: fixed;
     z-index: 1;
-    top: 15em;
-    left: 10px;
-    background: #eee;
+    background: rgb(167, 165, 165);
     overflow-x: hidden;
-    padding: 8px 0;
+    padding: 10px 0;
 }
 
 .sidenav a {
