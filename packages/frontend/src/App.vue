@@ -6,8 +6,6 @@ import { ref } from "@vue/reactivity";
 import UploadImageView from "./components/UploadImage/UploadImageView.vue";
 import { CategoryApiClient } from "./api/clients/category.api";
 import TopBar from "./components/Navigation/TopBar.vue";
-import SideBarVue from "./components/SideBar.vue";
-import SideBar from "./components/SideBar.vue";
 </script>
 <script lang="ts">
 let categoryApiClient: CategoryApiClient;
@@ -22,8 +20,8 @@ export default {
 
 <template>
     <top-bar />
-    <side-bar />
-    <router-link />
+
+    <router-view></router-view>
 </template>
 
 <style>
