@@ -106,8 +106,9 @@ export default {
                 </div>
  
                 <div class="btm-edit">
+                    
                     <p><strong>Redigera</strong></p>
-                    <!--Måste göra en ny sida för att redigera, lägg in en pennikon också-->
+                    <!--Måste göra en ny sida för att redigera, lägg in en pennikon också-->                    
                 </div>
  
                 <div class="btm-download">
@@ -271,7 +272,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 48.5%;
-        display: inline-block;
         float: left;
     }
 
@@ -279,7 +279,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 58.5%;
-        display: inline-block;
         float: left;
     }
 
@@ -287,7 +286,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 68.5%;
-        display: inline-block;
         float: left;
     }
 
@@ -295,7 +293,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 78.5%;
-        display: inline-block;
         float: left;
     }
 
@@ -303,7 +300,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 88.5%;
-        display: inline-block;
         float: left;
     }
 
