@@ -121,7 +121,7 @@ export default {
                     <!--Gör så att det går att ladda ner, lägg in en nedladdningsikon också-->
                 </div>
 
-                <div class="btm-delete"></div>
+                <div class="btm-delete"></div> <!--Maybe fix a function for deletion of image-->
             </div>
         </div>
     </div>
