@@ -20,8 +20,7 @@ export default {
 
 <template>
     <top-bar />
-    <side-bar />
-    <router-link />
+    <router-view />
 </template>
 
 <style>
