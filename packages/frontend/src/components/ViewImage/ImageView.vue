@@ -43,26 +43,32 @@ export default {
 };
 </script>
 <template>
-    <image-filter :update="filter"></image-filter>
+    <div class="box">
+        <image-filter :update="filter"></image-filter>
 
-    <n-grid
-        :x-gap="12"
-        y-gap="8"
-        cols="2 s:3 m:4 l:5 xl:6 2xl:7"
-        responsive="screen"
-    >
-        <n-grid-item v-for="image in images" :key="image.id">
-            <div>{{ image.name }}</div>
-            <div class="special">
-                <image-box :image-info="image" />
-            </div>
-        </n-grid-item>
-    </n-grid>
+        <n-grid
+            :x-gap="12"
+            y-gap="8"
+            cols="2 s:3 m:4 l:5 xl:6 2xl:7"
+            responsive="screen"
+            class="images"
+        >
+            <n-grid-item v-for="image in images" :key="image.id">
+                <div>{{ image.name }}</div>
+                <div class="special">
+                    <image-box :image-info="image" />
+                </div>
+            </n-grid-item>
+        </n-grid>
+    </div>
 </template>
 
 <style>
 .special {
     max-width: 100%;
     height: auto;
+}
+
+.images {
 }
 </style>

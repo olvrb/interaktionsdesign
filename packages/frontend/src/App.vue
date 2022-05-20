@@ -20,13 +20,16 @@ export default {
 
 <template>
     <top-bar />
-
+    <div class="padding"></div>
     <router-view></router-view>
 </template>
 
 <style>
 @import "./assets/style.css";
 
+.padding {
+    padding-top: 30px;
+}
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
