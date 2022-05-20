@@ -38,12 +38,13 @@ export default {
             </div>
         </div>
         <div class="btm-popup">
-            <div class="btm-popuptitle">
-                <h2>
-                    <strong>{{ ImageInfo.name }}</strong>
-                    <!-- Titel på bild tagen från databas-->
-                </h2>
-
+            <div class="btm-popupholder">
+                <div class="btm-popuptitle">
+                    <h2>
+                        <strong>{{ ImageInfo.name }}</strong>
+                        <!-- Titel på bild tagen från databas-->
+                    </h2>
+                </div>
                 <div class="btm-popupkeywrd">
                     <h4>Nyckelord</h4>
                 </div>
@@ -118,6 +119,8 @@ export default {
                     </a>
                     <!--Gör så att det går att ladda ner, lägg in en nedladdningsikon också-->
                 </div>
+
+                <div class="btm-delete"></div>
             </div>
         </div>
     </div>
@@ -154,186 +157,200 @@ export default {
 
         .popup-insideimg {
             position: relative;
-            width: auto;
-            height: auto;
+            width: 700px;
+            height: 150px;
         }
         .popup-insideimg img {
-            width: 50%;
             height: auto;
+            max-height: 150%;
+            width: relative;
         }
 
         .popup-exitbtn {
-            position: relative;
-            top: -370px;
-            right: -400px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-top: 1%;
+            margin-right: 1%;
         }
     }
 
     .btm-popup {
         position: fixed;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        left: 527px;
+        margin-top: 22%;
+        left: 16%;
         right: 0;
-        bottom: 0;
         z-index: 99;
-        height: 300px;
-        width: 865px;
+        height: 45%;
+        width: 68%;
         background-color: #fff;
         border-radius: 4%;
 
         align-items: center;
     }
-    .btm-popuptitle {
+    .btm-popupholder {
         position: relative;
-        left: -350px;
+        left: -45%;
+        width: 100%;
+    }
+    .btm-popuptitle {
+        position: absolute;
+        left: 46%;
+        top: -10%;
+    }
+    .btm-popupkeywrd {
+        position: absolute;
+        left: 46%;
+        top: 30px;
+    }
 
-        .btm-popupkeywrd {
-            position: relative;
-            left: -35px;
-            top: -10px;
-        }
+    .tag-foundationtot {
+        position: absolute;
+        margin-left: 46%;
+        top: 70px;
+        width: 100%;
+    }
 
-        .tag-foundationtot {
-            position: absolute;
-            margin-left: 360px;
-            top: 70px;
-        }
+    .tag-foundation1 {
+        position: absolute;
+        margin-right: 1%;
+        height: 30px;
+        width: 70px;
+        background-color: LightGray;
+        border-radius: 15%;
+        float: left;
+    }
 
-        .tag-foundation1 {
-            position: relative;
-            margin-right: 30px;
-            height: 30px;
-            width: 70px;
-            background-color: LightGray;
-            border-radius: 15%;
-            float: left;
-        }
+    .tag-foundation2 {
+        position: absolute;
+        left: 10%;
+        height: 30px;
+        width: 70px;
+        background-color: LightGray;
+        border-radius: 15%;
+        float: left;
+    }
 
-        .tag-foundation2 {
-            position: relative;
-            margin-right: 30px;
-            height: 30px;
-            width: 70px;
-            background-color: LightGray;
-            border-radius: 15%;
-            float: left;
-        }
+    .tag-foundation3 {
+        position: absolute;
+        left: 20%;
+        height: 30px;
+        width: 70px;
+        background-color: LightGray;
+        border-radius: 15%;
+        float: left;
+    }
 
-        .tag-foundation3 {
-            position: relative;
-            margin-right: 30px;
-            height: 30px;
-            width: 70px;
-            background-color: LightGray;
-            border-radius: 15%;
-            float: left;
-        }
+    .tag-foundation4 {
+        position: absolute;
+        left: 30%;
+        height: 30px;
+        width: 70px;
+        background-color: LightGray;
+        border-radius: 15%;
+        float: left;
+    }
 
-        .tag-foundation4 {
-            position: relative;
-            margin-right: 30px;
-            height: 30px;
-            width: 70px;
-            background-color: LightGray;
-            border-radius: 15%;
-            float: left;
-        }
+    .tag-foundation5 {
+        position: absolute;
+        left: 40%;
+        height: 30px;
+        width: 70px;
+        background-color: LightGray;
+        border-radius: 15%;
+        float: left;
+    }
 
-        .tag-foundation5 {
-            position: relative;
-            margin-right: 30px;
-            height: 30px;
-            width: 70px;
-            background-color: LightGray;
-            border-radius: 15%;
-            float: left;
-        }
+    .tagtot {
+        position: absolute;
+        left: -10px;
+        top: 100px;
+        width: 100%;
+    }
+    .tag-txt1 {
+        position: absolute;
+        top: -40px;
+        left: 48.5%;
+        display: inline-block;
+        float: left;
+    }
 
-        .tagtot {
-            position: absolute;
-            left: 375px;
-            margin-top: -35px;
+    .tag-txt2 {
+        position: absolute;
+        top: -40px;
+        left: 58.5%;
+        display: inline-block;
+        float: left;
+    }
 
-            .tag-txt1 {
-                position: relative;
-                margin-right: 60px;
-                display: inline-block;
-                float: left;
-            }
+    .tag-txt3 {
+        position: absolute;
+        top: -40px;
+        left: 68.5%;
+        display: inline-block;
+        float: left;
+    }
 
-            .tag-txt2 {
-                position: relative;
-                margin-right: 60px;
-                display: inline-block;
-                float: left;
-            }
+    .tag-txt4 {
+        position: absolute;
+        top: -40px;
+        left: 78.5%;
+        display: inline-block;
+        float: left;
+    }
 
-            .tag-txt3 {
-                position: relative;
-                margin-right: 60px;
-                display: inline-block;
-                float: left;
-            }
-
-            .tag-txt4 {
-                position: relative;
-                margin-right: 60px;
-                display: inline-block;
-                float: left;
-            }
-
-            .tag-txt5 {
-                position: relative;
-                display: inline-block;
-                float: left;
-            }
-        }
+    .tag-txt5 {
+        position: absolute;
+        top: -40px;
+        left: 88.5%;
+        display: inline-block;
+        float: left;
     }
 
     .btm-photographer {
-        position: relative;
-        left: -40px;
-        top: 20px;
+        position: absolute;
+        left: 46%;
+        top: 90px;
     }
 
     .btm-photographername {
-        position: relative;
-        left: -27px;
-        top: 5px;
+        position: absolute;
+        top: 115px;
+        left: 46%;
     }
 
     .btm-desctitle {
-        position: relative;
-        left: -25px;
+        position: absolute;
+        left: 46%;
+        top: 140px;
     }
 
     .btm-desc {
-        position: relative;
-        top: -15px;
-        left: 355px;
-        max-width: 700px;
+        position: absolute;
+        top: 165px;
+        left: 46%;
+        max-width: 1500px;
     }
 
     .btm-imageused {
         position: absolute;
-        left: 970px;
-        top: -30px;
+        left: 110%;
+        top: -10px;
         z-index: 99;
     }
     .btm-imageusedcolourred {
-        position: relative;
+        position: absolute;
         color: red;
-        margin-top: -15px;
-        margin-bottom: -15px;
+        left: 30px;
+        top: 92px;
     }
 
     .btm-edit {
-        position: relative;
+        position: absolute;
         color: purple;
-        left: 1100px;
-        top: -200px;
-        width: 100px;
+        left: 126%;
+        top: 120px;
+        width: 12%;
         height: 50px;
         border: 2px;
         border-style: solid;
@@ -342,14 +359,13 @@ export default {
     }
 
     .btm-download {
-        position: relative;
+        position: absolute;
         color: purple;
-        left: 1100px;
-        top: -200px;
-        width: 100px;
+        left: 126%;
+        top: 190px;
+        width: 12%;
         height: 50px;
         border: 2px;
-        margin-top: 15px;
         border-style: solid;
         border-radius: 15%;
         border-color: black;
