@@ -3,7 +3,9 @@ import { ref } from "@vue/reactivity";
 import { CategoryApiClient } from "../../api/clients/category.api";
 import { ImageApiClient } from "../../api/clients/image.api";
 import { ICategory } from "../../api/Entities/Category";
+import { ImageSearchRequest } from "../../api/Request";
 import CategoryViewer from "./CategoryViewer.vue";
+import SearchInput from "./SearchInput.vue";
 
 let dropdown = ref();
 let categoryApiClient: CategoryApiClient;
@@ -15,6 +17,9 @@ export default {
         baseUrl: {
             type: String,
             default: "http://localhost:3224"
+        },
+        update: {
+            type: Function
         }
     },
     data() {
@@ -43,18 +48,38 @@ export default {
         filter() {
             const categoryId = (this.$refs.selectedCategory as any).$refs
                 .selectedCategory.value;
-            console.log(categoryId);
+            const titleQuery = (this.$refs.titleQuery as any).$refs.textarea
+                .value;
+            const keywordQuery = (this.$refs.keywordQuery as any).$refs.textarea
+                .value;
+
+            const searchReq: ImageSearchRequest = {
+                categoryId,
+                titleQuery,
+                keywordQuery
+            };
+            (this.update as (data: ImageSearchRequest) => void)(searchReq);
         }
     },
-    components: { CategoryViewer }
+    components: { CategoryViewer, SearchInput }
 };
 </script>
 <template>
     <div class="sidenav">
         <h3>Filter</h3>
         <div id="categories">
-            <category-viewer ref="selectedCategory" :categories="categories" />
+            <category-viewer
+                :onchange="filter"
+                ref="selectedCategory"
+                :categories="categories"
+            />
         </div>
+        <search-input :onchange="filter" ref="titleQuery" placeholder="title" />
+        <search-input
+            :onchange="filter"
+            ref="keywordQuery"
+            placeholder="keywords"
+        />
     </div>
 </template>
 
@@ -87,14 +112,12 @@ body {
 }
 
 .sidenav {
-    width: 130px;
+    width: 15%;
     position: fixed;
     z-index: 1;
-    top: 15em;
-    left: 10px;
-    background: #eee;
+    background: rgb(167, 165, 165);
     overflow-x: hidden;
-    padding: 8px 0;
+    padding: 10px 30px 30px 30px;
 }
 
 .sidenav a {
@@ -112,7 +135,7 @@ body {
 .main {
     margin-left: 140px; /* Same width as the sidebar + left position in px */
     font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+    padding: 0px 30px;
 }
 
 @media screen and (max-height: 450px) {

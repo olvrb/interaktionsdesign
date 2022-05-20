@@ -1,5 +1,15 @@
 <script lang="ts">
-export default {};
+export default {
+    props: {
+        placeholder: {
+            type: String,
+            default: ""
+        },
+        onchange: {
+            type: Function
+        }
+    }
+};
 </script>
 
 <script setup lang="ts">
@@ -9,31 +19,21 @@ let input = ref("");
 </script>
 
 <template>
-    <input type="text" v-model="input" placeholder="Search for keyword..." />
+    <input
+        @keyup="onchange"
+        ref="textarea"
+        type="text"
+        v-model="input"
+        :placeholder="`Search for ${placeholder}...`"
+    />
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
-* {
-    padding: 0;
-    margin: 0;
-
-    font-family: "Montserrat", sans-serif;
-}
-
-body {
-    padding: 20px;
-    min-height: 100vh;
-    background-color: rgb(234, 242, 255);
-}
-
 input {
     display: block;
     width: 350px;
     margin: 20px auto;
     padding: 10px 45px;
-    background: white url("@/assets/search-icon.svg") no-repeat 15px center;
     background-size: 15px 15px;
     font-size: 16px;
     border: none;

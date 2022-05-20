@@ -8,11 +8,23 @@ defineProps<{
 </script>
 
 <script lang="ts">
-export default {};
+export default {
+    props: {
+        onchange: {
+            type: Function
+        }
+    },
+    data() {}
+};
 </script>
 
 <template>
-    <select ref="selectedCategory" name="category" id="category">
+    <select
+        @change="onchange"
+        ref="selectedCategory"
+        name="category"
+        id="category"
+    >
         <optgroup
             :label="category.name"
             v-for="category in categories"

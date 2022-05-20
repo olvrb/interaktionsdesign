@@ -121,5 +121,6 @@ dist-ssr
 *.sln
 *.sw?
 
+log.txt
 
 /packages/backend/src/Config.ts

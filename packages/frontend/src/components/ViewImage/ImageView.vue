@@ -7,6 +7,8 @@ import { onBeforeMount, ref } from "vue";
 import { CategoryApiClient } from "../../api/clients/category.api";
 import { IImage } from "../../api/Entities/Image";
 import { ImageApiClient } from "../../api/clients/image.api";
+import { ImageSearchRequest } from "../../api/Request";
+import ImageFilter from "../DataSelection/ImageFilter.vue";
 
 const filesystem = ref<any>();
 const images = ref<IImage[]>();
@@ -27,10 +29,16 @@ export default {
         images.value = await imageApiClient.search("", "");
         console.log(images.value);
     },
-    async created() {}
+    async created() {},
+    methods: {
+        filter(searchReq: ImageSearchRequest) {
+            console.log(searchReq);
+        }
+    }
 };
 </script>
 <template>
+    <image-filter :update="filter"></image-filter>
     <!-- <a>{{ filesystem }}</a> -->
 
     <n-grid
