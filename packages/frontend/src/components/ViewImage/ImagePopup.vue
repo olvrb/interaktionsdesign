@@ -174,6 +174,9 @@ export default {
             margin-top: 1%;
             margin-right: 1%;
         }
+        .popup-exitbtn:hover{
+            cursor:pointer;
+        }
     }
  
     .btm-popup {
