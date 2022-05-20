@@ -18,7 +18,7 @@ export class Category extends BaseEntity {
     constructor(name: string, parent?: Category, children?: Category[]) {
         super();
         this.name = name;
-        // if (children) this.children = children;
+        // Assign parent if provided, else assume that this is a root category
         if (parent) this.parent = parent;
     }
 

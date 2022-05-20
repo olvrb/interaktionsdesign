@@ -26,7 +26,6 @@ const port = Configuration.Web.Port;
 // const imageService = new ImageService(Configuration.Web.ImageDirectory);
 connect()
     .then(async () => {
-        // await imageService.init();
         await CategoryService.init();
         app.listen(port, () => {
             console.log(`Listening on port ${port}: http://localhost:${port}`);

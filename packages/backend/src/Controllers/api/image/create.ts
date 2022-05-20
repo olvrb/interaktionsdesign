@@ -21,9 +21,12 @@ export async function CreateImageHandler(
         keywords,
         photographer
     } = req.body;
+
+    // -1 is used as default if nothing else is provided
+    // We can assume we own the image in this case
     if (!uses) uses = -1;
 
-    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+    // Retrieve the image from the request
     const file = req.files.file as UploadedFile;
     const dbImage = await Image.createImage(
         imageName,

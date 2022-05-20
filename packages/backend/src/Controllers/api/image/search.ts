@@ -8,17 +8,23 @@ export async function SearchImagesHandler(
     res: Response,
     next: NextFunction
 ) {
-    let { titleQuery, keywordQuery } = req.query;
+    let { titleQuery, keywordQuery, categoryId } = req.query;
     console.log(titleQuery, keywordQuery);
 
     if (!titleQuery) titleQuery = "";
     if (!keywordQuery) keywordQuery = "";
 
+    // Filter images based on title and keywords
     let dbImages: Image[] = await (
         await Image.find({ where: { name: Like(`%${titleQuery}%`) } })
     ).filter((x) =>
         x.keywords.some((x) => x.name.includes(keywordQuery as string))
     );
+
+    // If category is provided, filter using that as well
+    if (typeof categoryId === "string" && categoryId !== "") {
+        dbImages = dbImages.filter((x) => x.category?.id === categoryId);
+    }
 
     res.json(dbImages);
 }
