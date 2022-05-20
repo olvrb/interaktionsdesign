@@ -7,3 +7,9 @@ export interface CreateImageRequest {
     keywords: string;
     photographer: string;
 }
+
+export interface ImageSearchRequest {
+    titleQuery: string;
+    keywordQuery: string;
+    categoryId: string;
+}
