@@ -5,11 +5,9 @@ import { Category } from "../Database/Entities/Category";
 export class CategoryService {
     public static async init() {
         const currentCats = await CategoryService.GetCategories();
-        // (await Category.findOneOrFail({ where: { name: "root" } })).remove();
-        if (currentCats.length === 0) {
-            // const root = new Category("root");
-            // await root.save();
 
+        // If not created before, create categories
+        if (currentCats.length === 0) {
             const sport = new Category("sport");
             const food = new Category("food");
             const kultur = new Category("kultur");

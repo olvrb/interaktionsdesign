@@ -31,7 +31,9 @@ export async function SearchCategoriesHandler(
             result.push(category);
         }
     } */
-    dbCategories = await (await getTreeRepository(Category).findTrees()).filter(
+
+    // Retrieve all categories in a tree and filter by name
+    dbCategories = (await getTreeRepository(Category).findTrees()).filter(
         (x) => {
             return (
                 x.children && x.name.toLowerCase().includes(query.toLowerCase())

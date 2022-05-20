@@ -5,7 +5,7 @@
 import { ref } from "@vue/reactivity";
 import UploadImageView from "./components/UploadImage/UploadImageView.vue";
 import { CategoryApiClient } from "./api/clients/category.api";
-import TopBar from "./components/TopBar.vue";
+import TopBar from "./components/Navigation/TopBar.vue";
 </script>
 <script lang="ts">
 let categoryApiClient: CategoryApiClient;
