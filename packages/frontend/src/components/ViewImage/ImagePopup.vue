@@ -28,13 +28,9 @@ export default {
                 <img :src="`${baseUrl}/api/image/${ImageInfo.id}`" alt="test" />
             
             <div class="popup-exitbtn">
-                <input
-                    type="image"
-                    id="popup-close"
-                    alt="exit"
-                    src="/assets/cross.png"
-                    @click="TogglePopup()"
-                /><!--fixa bilden-->
+                <a @click="TogglePopup()">
+                    <img src="../../assets/logo.png" alt="" />
+                </a>
             </div>
             </div>
         </div>
@@ -171,8 +167,10 @@ export default {
  
         .popup-exitbtn {
             position: absolute;
-            right: -55%;
-            top: -25%;
+            right: -3%;
+            top: -15%;
+            width: 15px;
+            height: 15px;
             margin-top: 1%;
             margin-right: 1%;
         }
