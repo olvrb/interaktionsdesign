@@ -14,9 +14,9 @@ export class CategoryApiClient extends ApiClient {
     }
 
     public async getImage(id: string): Promise<IImage> {
-        return this.fetch<IImage>(`/images/${id}`);
+        return this.fetch<IImage>(`images/${id}`);
     }
     public async getImages(): Promise<IImage[]> {
-        return this.fetch<IImage[]>("/images");
+        return this.fetch<IImage[]>("images");
     }
 }

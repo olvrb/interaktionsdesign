@@ -2,7 +2,6 @@ import { ApiClient } from "../ApiClient";
 import { IImage } from "../Entities/Image";
 import { CreateImageRequest } from "../Request";
 import { CreateImageResponse } from "../Response";
-import { URLSearchParams } from "url";
 
 export class ImageApiClient extends ApiClient {
     constructor(baseUrl: string) {
@@ -15,7 +14,7 @@ export class ImageApiClient extends ApiClient {
         categoryId?: string
     ): Promise<IImage[]> {
         return this.fetch<IImage[]>(
-            `api/images/search${new URLSearchParams({
+            `api/images/search/?${new URLSearchParams({
                 titleQuery,
                 keywordQuery,
                 categoryId: categoryId ?? ""

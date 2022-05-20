@@ -3,12 +3,6 @@ import { NImage } from "naive-ui";
 import { imageGroupInjectionKey } from "naive-ui/lib/image/src/ImageGroup";
 import { IImage } from "../../api/Entities/Image";
 import PopupButton from "./PopupButton.vue";
-/* defineProps<{
-    title: string;
-    description: string;
-    imageSrc: string;
-    imageInfo: IImage;
-}>(); */
 </script>
 
 <script lang="ts">
