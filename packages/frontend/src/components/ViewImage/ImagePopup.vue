@@ -91,7 +91,7 @@ export default {
  
                 <div class="btm-imageused">
                     <p>
-                        <strong>Denna bild är inköpt och kan användas</strong>
+                        <strong>Denna bild är inköpt och kan användas</strong> <!--Kanske gömma text om den inte är inköpt-->
                     </p>
  
                     <div class="btm-imageusedcolourred">
