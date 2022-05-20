@@ -26,7 +26,7 @@ export default {
         <div class="popup-inner">
             <div class="popup-insideimg">
                 <img :src="`${baseUrl}/api/image/${ImageInfo.id}`" alt="test" />
-            </div>
+            
             <div class="popup-exitbtn">
                 <input
                     type="image"
@@ -35,6 +35,7 @@ export default {
                     src="/assets/cross.png"
                     @click="TogglePopup()"
                 /><!--fixa bilden-->
+            </div>
             </div>
         </div>
         <div class="btm-popup">
@@ -159,18 +160,19 @@ export default {
         .popup-insideimg {
             position: relative;
             width: 700px;
-            height: 150px;
+            height: 190px;
         }
         .popup-insideimg img {
+            position: relative;                        
             height: auto;
-            max-height: 150%;
+            max-height: 115%;
             width: relative;
         }
  
         .popup-exitbtn {
             position: absolute;
-            right: 0;
-            top: 0;
+            right: -55%;
+            top: -25%;
             margin-top: 1%;
             margin-right: 1%;
         }
@@ -181,6 +183,7 @@ export default {
         margin-top: 22%;
         left: 16%;
         right: 0;
+        bottom: 0;
         z-index: 99;
         height: 45%;
         width: 68%;
