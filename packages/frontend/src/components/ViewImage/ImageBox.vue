@@ -37,7 +37,7 @@ export default {
 <style>
 .container {
     position: relative;
-    width: 50%;
+    object-fit: cover;
 }
 
 .image {

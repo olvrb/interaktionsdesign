@@ -5,6 +5,7 @@
 <template>
     <div class="topnav">
         <h1 class="title">Bothniabladet</h1>
+        <p class="infologin">Välkommen, Admin</p>
         <router-link to="/">Home</router-link>
         <router-link to="/upload">Upload</router-link>
     </div>
@@ -13,6 +14,14 @@
 <style scoped>
 .title {
     color: #eee;
+}
+
+.infologin{
+    color: #eee;
+    position: absolute;
+    top:0;
+    right:0;
+    margin-right: 20px;
 }
 .topnav {
     background-color: #333;
