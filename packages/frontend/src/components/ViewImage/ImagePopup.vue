@@ -29,7 +29,7 @@ export default {
             
             <div class="popup-exitbtn">
                 <a @click="TogglePopup()">
-                    <img src="../../assets/logo.png" alt="" />
+                    <img src="../../assets/logo.png" alt="exit" />
                 </a>
             </div>
             </div>
@@ -118,7 +118,11 @@ export default {
                     <!--Gör så att det går att ladda ner, lägg in en nedladdningsikon också-->
                 </div>
 
-                <div class="btm-delete"></div> <!--Maybe fix a function for deletion of image-->
+                <div class="btm-delete">
+                    <a>
+                        <img src="../../assets/bin.jpg" id= "deletebtn" alt="delete" />
+                    </a>
+                </div> <!--Maybe fix a function for deletion of image-->
             </div>
         </div>
     </div>
@@ -370,6 +374,24 @@ export default {
         border-radius: 15%;
         border-color: black;
     }
+
+    .btm-delete{
+        position: absolute;
+        top: 15px;
+        right: -43%;      
+        z-index: 99;
+    }      
+    
+    #deletebtn{
+        width: 30px;
+        height: 30px;
+        left: 0px;
+        right: 0px;
+    }
+    
+    .btm-delete:hover{
+            cursor:pointer;
+        }
 }
 </style>
  
