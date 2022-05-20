@@ -13,7 +13,14 @@ export async function CreateImageHandler(
     if (!req.files) {
         return next(createHttpError(404));
     }
-    let { imageName, description, categoryId, uses, keywords } = req.body;
+    let {
+        imageName,
+        description,
+        categoryId,
+        uses,
+        keywords,
+        photographer
+    } = req.body;
     if (!uses) uses = -1;
 
     // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
@@ -23,7 +30,8 @@ export async function CreateImageHandler(
         description,
         categoryId,
         +uses,
-        keywords.split(" ")
+        keywords.split(" "),
+        photographer
     );
 
     const savedDbImage = await dbImage.save();

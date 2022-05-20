@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "@vicons/ionicons5": "^0.12.0",
+    "bootstrap": "^5.1.3",
+    "bootstrap-vue": "^2.22.0",
+    "sass": "^1.51.0",
     "vue": "^3.2.25",
     "vue-formulate": "^0.12.1",
     "vue-router": "^4.0.15"

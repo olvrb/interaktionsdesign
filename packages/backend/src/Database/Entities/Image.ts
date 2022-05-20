@@ -3,17 +3,8 @@ import {
     Column,
     DeleteResult,
     Entity,
-    FindConditions,
-    Generated,
     ManyToMany,
-    ManyToOne,
-    ObjectID,
-    ObjectType,
-    OneToMany,
-    PrimaryColumn,
-    PrimaryGeneratedColumn,
-    RemoveOptions,
-    TableInheritance
+    ManyToOne
 } from "typeorm";
 import { ImageService } from "../../Services/ImageService";
 import { BaseEntity } from "./BaseEntity";
@@ -29,6 +20,7 @@ export class Image extends BaseEntity {
         description: string,
         uses: number,
         keywords: Keyword[],
+        photographer: string,
         category: Category | null
     ) {
         super();
@@ -36,6 +28,7 @@ export class Image extends BaseEntity {
         this.description = description;
         this.usesLeft = uses;
         this.keywords = keywords;
+        this.photographer = photographer;
         if (category) this.category = category;
     }
 
@@ -53,9 +46,10 @@ export class Image extends BaseEntity {
         description: string,
         categoryId: string,
         uses: number,
-        keywords: string[]
+        keywords: string[],
+        photographer: string
     ) {
-        // find existing keywords with same name, else create new one
+        // find existing keywords with same name, else create new ones
         const dbKeywords = await Promise.all(
             keywords.map(async (keyword) => {
                 return (
@@ -66,8 +60,14 @@ export class Image extends BaseEntity {
         );
         const category = await CategoryService.GetCategory(categoryId);
 
-        // convert all keyword strings to keyword entities
-        const image = new Image(name, description, uses, dbKeywords, category);
+        const image = new Image(
+            name,
+            description,
+            uses,
+            dbKeywords,
+            photographer,
+            category
+        );
         image.setCategory(categoryId);
         return image;
     }
@@ -81,6 +81,9 @@ export class Image extends BaseEntity {
 
     @Column()
     public description: string;
+
+    @Column()
+    public photographer: string;
 
     @Column()
     public usesLeft: number;
@@ -99,4 +102,8 @@ export class Image extends BaseEntity {
     )
     @JoinTable()
     public keywords: Keyword[];
+
+    public getKeywords(): string[] {
+        return this.keywords.map((keyword) => keyword.name);
+    }
 }

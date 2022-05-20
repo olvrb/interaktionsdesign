@@ -5,4 +5,5 @@ export interface CreateImageRequest {
     uses: number;
     file: File | undefined;
     keywords: string;
+    photographer: string;
 }

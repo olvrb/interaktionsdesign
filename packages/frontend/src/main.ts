@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import Vue from "vue";
 import {
     createRouter,
     createWebHashHistory,

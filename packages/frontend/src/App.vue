@@ -5,23 +5,21 @@
 import { ref } from "@vue/reactivity";
 import UploadImageView from "./components/UploadImage/UploadImageView.vue";
 import { CategoryApiClient } from "./api/clients/category.api";
+import TopBar from "./components/Navigation/TopBar.vue";
 </script>
 <script lang="ts">
-import TopBar from "./components/topbar/TopBar.vue";
-
 let categoryApiClient: CategoryApiClient;
 export default {
     name: "App",
     props: {
         baseUrl: String
-    },
-    components: { TopBar }
+    }
+    // components: { TopBar }
 };
 </script>
 
 <template>
-    <router-link to="/">Home</router-link>
-    <router-link to="/upload">Upload</router-link>
+    <top-bar />
 
     <router-view></router-view>
 </template>
