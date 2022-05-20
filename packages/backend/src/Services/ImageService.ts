@@ -6,6 +6,8 @@ import { join } from "path";
 
 export class ImageService {
     public static async GetImageFile(id: string): Promise<ReadStream> {
+        // Search for image in database, if not found, return error
+        // else return image file from filesystem
         const image = await Image.findOne(id);
         if (!image) {
             throw new Error("Image not found");

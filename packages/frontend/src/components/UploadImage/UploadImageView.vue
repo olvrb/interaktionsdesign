@@ -60,8 +60,6 @@ export default {
             };
             const res = await imageApiClient.createImage(info);
 
-            console.log(info);
-
             if (res.id) {
                 this.$router.push("/?success=true");
             } else {
