@@ -31,15 +31,19 @@ export default {
     },
     async created() {},
     methods: {
-        filter(searchReq: ImageSearchRequest) {
+        async filter(searchReq: ImageSearchRequest) {
             console.log(searchReq);
+            images.value = await imageApiClient.search(
+                searchReq.titleQuery,
+                searchReq.keywordQuery,
+                searchReq.categoryId
+            );
         }
     }
 };
 </script>
 <template>
     <image-filter :update="filter"></image-filter>
-    <!-- <a>{{ filesystem }}</a> -->
 
     <n-grid
         :x-gap="12"
@@ -50,7 +54,7 @@ export default {
         <n-grid-item v-for="image in images" :key="image.id">
             <div>{{ image.name }}</div>
             <div class="special">
-                <ImageBox :image-info="image" />
+                <image-box :image-info="image" />
             </div>
         </n-grid-item>
     </n-grid>

@@ -9,7 +9,6 @@ export async function SearchImagesHandler(
     next: NextFunction
 ) {
     let { titleQuery, keywordQuery, categoryId } = req.query;
-    console.log(titleQuery, keywordQuery);
 
     if (!titleQuery) titleQuery = "";
     if (!keywordQuery) keywordQuery = "";

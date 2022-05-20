@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Ref, ref } from "@vue/reactivity";
 import { ICategory } from "../../api/Entities/Category";
-ref();
 defineProps<{
     categories: ICategory[] | undefined;
+    isFilter: boolean;
 }>();
 </script>
 
@@ -12,9 +12,18 @@ export default {
     props: {
         onchange: {
             type: Function
+        },
+        isFilter: {
+            type: String,
+            default: false
         }
     },
-    data() {}
+    data() {
+        return {
+            isFilter: false
+        };
+    },
+    created() {}
 };
 </script>
 
@@ -25,6 +34,10 @@ export default {
         name="category"
         id="category"
     >
+        <option v-if="isFilter" value="">
+            alla
+        </option>
+
         <optgroup
             :label="category.name"
             v-for="category in categories"

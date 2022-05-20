@@ -69,6 +69,7 @@ export default {
         <h3>Filter</h3>
         <div id="categories">
             <category-viewer
+                :isFilter="true"
                 :onchange="filter"
                 ref="selectedCategory"
                 :categories="categories"
