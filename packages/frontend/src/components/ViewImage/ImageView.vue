@@ -3,7 +3,7 @@ import { NGrid, NGridItem, NSpace, NImageGroup, NImage } from "naive-ui";
 import ImageBox from "./ImageBox.vue";
 </script>
 <script lang="ts">
-import { onBeforeMount, ref } from "vue";
+import { onBeforeMount, ref, watch } from "vue";
 import { CategoryApiClient } from "../../api/clients/category.api";
 import { IImage } from "../../api/Entities/Image";
 import { ImageApiClient } from "../../api/clients/image.api";

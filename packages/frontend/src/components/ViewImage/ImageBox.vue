@@ -28,9 +28,9 @@ export default {
             v-bind:src="imageSrc"
             loading="lazy"
         /> -->
-        <PopupButton :ImageInfo="imageInfo">
+        <popup-button :ImageInfo="imageInfo">
             <img :src="`${baseUrl}/api/image/${imageInfo.id}`" width="200" />
-        </PopupButton>
+        </popup-button>
     </div>
 </template>
 
