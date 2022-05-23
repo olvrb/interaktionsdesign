@@ -3,7 +3,7 @@
 ## frontend
 
 - typescript
-- vuejs
+- vue
 - vite
 
 ## backend
@@ -14,7 +14,7 @@
 
 ## setup
 
-• `code workspace.code-workspace`
-• `yarn`
-• `mv packages/backend/src/Config.example.ts packages/backend/src/Config.ts`
-• `yarn dev`
+- `code workspace.code-workspace`
+- `yarn`
+- `mv packages/backend/src/Config.example.ts packages/backend/src/Config.ts`, setup database connection details
+- `yarn dev`
