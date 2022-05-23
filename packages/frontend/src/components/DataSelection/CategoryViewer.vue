@@ -60,4 +60,7 @@ export default {
     flex-direction: column;
     align-items: center;
 }
+select {
+    width: 150px;
+}
 </style>
