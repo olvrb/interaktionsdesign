@@ -17,20 +17,32 @@ export default {
     },
     beforeMount: function() {
         console.log(this.ImageInfo);
+    },
+    mounted() {
+        this.$refs.popup.focus();
+    },
+    methods: {
+        dismiss(event: Event) {
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+            this.TogglePopup();
+        }
     }
 };
 </script>
 
 <template>
-    <div class="popup">
+    <div ref="popup" tabindex="0" @keydown.esc="TogglePopup()" class="popup">
+        <div @click="dismiss" class="background"></div>
         <div class="popup-inner">
             <div class="popup-insideimg">
                 <img :src="`${baseUrl}/api/image/${ImageInfo.id}`" alt="test" />
-            </div>
-            <div class="popup-exitbtn">
-                <a @click="TogglePopup()">
-                    <img src="../../assets/logo.png" alt="" />
-                </a>
+
+                <div class="popup-exitbtn">
+                    <a @click="TogglePopup()">
+                        <img src="../../assets/logo.png" alt="exit" />
+                    </a>
+                </div>
             </div>
         </div>
         <div class="btm-popup">
@@ -91,12 +103,13 @@ export default {
                 <div class="btm-imageused">
                     <p>
                         <strong>Denna bild är inköpt och kan användas</strong>
+                        <!--Kanske gömma text om den inte är inköpt-->
                     </p>
 
-                    <div class="btm-imageusedcolourred">
-                        <p>{{ ImageInfo.usesLeft }}</p>
-                        <!--N, skriv in så att den kan ändras beroende på databas-->
-                    </div>
+                    <p class="btm-imageusedcolourred">
+                        {{ ImageInfo.usesLeft }}
+                    </p>
+                    <!--N, skriv in så att den kan ändras beroende på databas-->
 
                     <p><strong>gånger till</strong></p>
                 </div>
@@ -116,7 +129,16 @@ export default {
                     <!--Gör så att det går att ladda ner, lägg in en nedladdningsikon också-->
                 </div>
 
-                <div class="btm-delete"></div>
+                <div class="btm-delete">
+                    <a>
+                        <img
+                            src="../../assets/bin.jpg"
+                            id="deletebtn"
+                            alt="delete"
+                        />
+                    </a>
+                </div>
+                <!--Maybe fix a function for deletion of image-->
             </div>
         </div>
     </div>
@@ -140,6 +162,14 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    .background {
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        position: fixed;
+    }
 
     .popup-inner {
         position: relative;
@@ -154,22 +184,28 @@ export default {
         .popup-insideimg {
             position: relative;
             width: 700px;
-            height: 150px;
+            height: 190px;
         }
         .popup-insideimg img {
+            position: relative;
             height: auto;
-            max-height: 150%;
+            max-height: 115%;
             width: relative;
         }
 
         .popup-exitbtn {
             position: absolute;
-            right: 0;
-            top: 0;
+            right: -3%;
+            top: -15%;
+            width: 15px;
+            height: 15px;
             margin-top: 1%;
             margin-right: 1%;
             height: 20px;
             width: 20px;
+        }
+        .popup-exitbtn:hover {
+            cursor: pointer;
         }
     }
 
@@ -178,6 +214,7 @@ export default {
         margin-top: 22%;
         left: 16%;
         right: 0;
+        bottom: 0;
         z-index: 99;
         height: 45%;
         width: 68%;
@@ -269,7 +306,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 48.5%;
-        display: inline-block;
         float: left;
     }
 
@@ -277,7 +313,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 58.5%;
-        display: inline-block;
         float: left;
     }
 
@@ -285,7 +320,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 68.5%;
-        display: inline-block;
         float: left;
     }
 
@@ -293,7 +327,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 78.5%;
-        display: inline-block;
         float: left;
     }
 
@@ -301,7 +334,6 @@ export default {
         position: absolute;
         top: -40px;
         left: 88.5%;
-        display: inline-block;
         float: left;
     }
 
@@ -337,10 +369,7 @@ export default {
         z-index: 99;
     }
     .btm-imageusedcolourred {
-        position: absolute;
         color: red;
-        left: 30px;
-        top: 92px;
     }
 
     .btm-edit {
@@ -367,6 +396,24 @@ export default {
         border-style: solid;
         border-radius: 15%;
         border-color: black;
+    }
+
+    .btm-delete {
+        position: absolute;
+        top: 15px;
+        right: -43%;
+        z-index: 99;
+    }
+
+    #deletebtn {
+        width: 30px;
+        height: 30px;
+        left: 0px;
+        right: 0px;
+    }
+
+    .btm-delete:hover {
+        cursor: pointer;
     }
 }
 </style>
