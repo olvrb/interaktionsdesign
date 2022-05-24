@@ -56,7 +56,7 @@ export default {
                 // get child ref for input value
                 categoryId: ((this.$refs.selectedCategory as any).$refs
                     .selectedCategory as HTMLInputElement).value,
-                uses: 0
+                uses: -1
             };
             const res = await imageApiClient.createImage(info);
 

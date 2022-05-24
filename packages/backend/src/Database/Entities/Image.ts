@@ -58,6 +58,8 @@ export class Image extends BaseEntity {
                 );
             })
         );
+
+        // find existing category
         const category = await CategoryService.GetCategory(categoryId);
 
         const image = new Image(

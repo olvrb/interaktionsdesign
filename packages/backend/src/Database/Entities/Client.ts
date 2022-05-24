@@ -1,12 +1,12 @@
 import {
-    Entity,     
-    Column, 
+    Entity,
+    Column,
     PrimaryGeneratedColumn
 } from "typeorm"; /*har vi typeorm library? */
+import { BaseEntity } from "./BaseEntity";
 
 @Entity()
-export class Clients /*Extends? den är inte kopplad på lucidchart så isåfall till vad*/{
-    
+export class Clients extends BaseEntity {
     @PrimaryGeneratedColumn()
     clientId: number;
 
@@ -14,6 +14,5 @@ export class Clients /*Extends? den är inte kopplad på lucidchart så isåfall
     description: string;
 
     @Column()
-    discount: number; /*Ska jag sätta ett max och isåfall hur?*/
-
+    discount: number;
 }

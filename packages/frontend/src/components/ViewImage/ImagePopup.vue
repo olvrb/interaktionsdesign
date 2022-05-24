@@ -15,9 +15,7 @@ export default {
             default: "http://localhost:3224"
         }
     },
-    beforeMount: function() {
-        console.log(this.ImageInfo);
-    },
+    beforeMount: function() {},
     mounted() {
         this.$refs.popup.focus();
     },
