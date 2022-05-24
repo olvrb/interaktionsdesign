@@ -27,12 +27,12 @@ export default {
     async beforeMount() {
         imageApiClient = new ImageApiClient(this.baseUrl);
         images.value = await imageApiClient.search("", "");
-        console.log(images.value);
     },
     async created() {},
     methods: {
         async filter(searchReq: ImageSearchRequest) {
             console.log(searchReq);
+            // Update images based on query
             images.value = await imageApiClient.search(
                 searchReq.titleQuery,
                 searchReq.keywordQuery,

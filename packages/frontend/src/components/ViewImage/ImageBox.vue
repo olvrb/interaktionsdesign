@@ -22,12 +22,6 @@ export default {
 
 <template>
     <div class="container">
-        <!-- <NImage
-            class="image"
-            width="200"
-            v-bind:src="imageSrc"
-            loading="lazy"
-        /> -->
         <popup-button :ImageInfo="imageInfo">
             <img :src="`${baseUrl}/api/image/${imageInfo.id}`" width="200" />
         </popup-button>

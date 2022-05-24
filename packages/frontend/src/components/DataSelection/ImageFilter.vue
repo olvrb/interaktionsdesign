@@ -46,6 +46,7 @@ export default {
             }
         },
         filter() {
+            // Get values from inputs and filter images
             const categoryId = (this.$refs.selectedCategory as any).$refs
                 .selectedCategory.value;
             const titleQuery = (this.$refs.titleQuery as any).$refs.textarea
